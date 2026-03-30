@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerFit Gym | Andheri West, Mumbai | Transform Your Body</title>
+  <meta name="description" content="PowerFit Gym in Andheri West, Mumbai. Expert coaching by Vikram Rajput (ACSM & NSCA certified). Weight Training, CrossFit, Yoga, Personal Training. Join now!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================
+       RESET & BASE
+    ============================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0A0A0F;
+      --surface: #141420;
+      --card-bg: #1A1A2E;
+      --primary: #FF2D55;
+      --primary-glow: rgba(255, 45, 85, 0.3);
+      --secondary: #FF6B35;
+      --accent: #00D4FF;
+      --text: #F0F0F5;
+      --text-secondary: #8888A0;
+      --whatsapp: #25D366;
+      --radius-card: 12px;
+      --radius-btn: 8px;
+      --font-heading: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+      --shadow-glow: 0 0 30px rgba(255, 45, 85, 0.2);
+      --perspective: 1000px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ============================
+       TYPOGRAPHY
+    ============================ */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    .section__tag {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section__tag::before {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .section__title {
+      font-size: clamp(2.4rem, 6vw, 3.9rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .section__subtitle {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ============================
+       BUTTONS
+    ============================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: var(--radius-btn);
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      min-height: 48px;
+      min-width: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn--primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+
+    .btn--primary:hover {
+      background: #FF4570;
+      box-shadow: 0 4px 40px var(--primary-glow), 0 0 60px rgba(255, 45, 85, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn--outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .btn--whatsapp {
+      background: var(--whatsapp);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn--whatsapp:hover {
+      background: #2BE06F;
+      box-shadow: 0 4px 40px rgba(37, 211, 102, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* ============================
+       3D TILT CARD
+    ============================ */
+    .tilt-card {
+      perspective: var(--perspective);
+    }
+
+    .tilt-card__inner {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: box-shadow 0.3s ease;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform-style: preserve-3d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tilt-card__inner:hover {
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px var(--primary-glow);
+    }
+
+    .tilt-card__shine {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+    }
+
+    .tilt-card__inner:hover .tilt-card__shine {
+      opacity: 1;
+    }
+
+    /* ============================
+       TOP INFO BAR
+    ============================ */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1001;
+      background: var(--bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      height: 36px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .top-bar__wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-weight: 400;
+      flex-wrap: wrap;
+    }
+
+    .top-bar__item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .top-bar__item svg {
+      width: 13px;
+      height: 13px;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .top-bar__item a {
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+    }
+
+    .top-bar__item a:hover {
+      color: var(--primary);
+    }
+
+    .top-bar__divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 600px) {
+      .top-bar { display: none; }
+      .navbar { top: 0; }
+    }
+
+    /* ============================
+       NAVBAR
+    ============================ */
+    .navbar {
+      position: fixed;
+      top: 36px;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .navbar--scrolled {
+      background: rgba(10, 10, 15, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 12px 0;
+      box-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
+      top: 0;
+    }
+
+    .navbar__wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1001;
+    }
+
+    .navbar__logo-icon {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 0 8px var(--primary-glow));
+    }
+
+    .navbar__logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .navbar__logo-text span {
+      color: var(--primary);
+    }
+
+    .navbar__menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .navbar__link {
+      font-family: var(--font-heading);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+      padding: 4px 0;
+    }
+
+    .navbar__link:hover {
+      color: var(--text);
+    }
+
+    .navbar__cta {
+      padding: 10px 24px;
+      font-size: 0.875rem;
+    }
+
+    .navbar__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+    }
+
+    .navbar__hamburger-line {
+      width: 28px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .navbar__hamburger--active .navbar__hamburger-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .navbar__hamburger--active .navbar__hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar__hamburger--active .navbar__hamburger-line:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    @media (max-width: 768px) {
+      .navbar__hamburger { display: flex; }
+      .navbar__menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(10, 10, 15, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .navbar__menu--open {
+        transform: translateX(0);
+      }
+      .navbar__link {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      .navbar__cta {
+        font-size: 1.125rem;
+        padding: 14px 40px;
+      }
+    }
+
+    /* ============================
+       HERO
+    ============================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 156px 0 140px;
+    }
+
+    .hero__bg-image {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center center / cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero__bg-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 15, 0.7);
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,10,15,0.6) 0%, rgba(26,10,24,0.5) 30%, rgba(10,10,31,0.5) 60%, rgba(10,10,15,0.6) 100%);
+      background-size: 300% 300%;
+      animation: heroGradient 12s ease infinite;
+      z-index: 0;
+    }
+
+    @keyframes heroGradient {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 100% 0%; }
+      50% { background-position: 100% 100%; }
+      75% { background-position: 0% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero__grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 45, 85, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 45, 85, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 1;
+    }
+
+    .hero__diagonal {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      z-index: 3;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: rgba(255, 45, 85, 0.1);
+      border: 1px solid rgba(255, 45, 85, 0.2);
+      border-radius: 100px;
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .hero__badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: pulseDot 2s ease infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+
+    .hero__title {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero__title-accent {
+      color: var(--primary);
+      text-shadow: 0 0 40px var(--primary-glow);
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.1875rem);
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .hero__stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero__stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero__stat-number {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .hero__stat-number span {
+      color: var(--primary);
+    }
+
+    .hero__stat-label {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    /* Decorative glow orbs */
+    .hero__orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero__orb--1 {
+      width: 400px;
+      height: 400px;
+      background: rgba(255, 45, 85, 0.08);
+      top: 10%;
+      right: -10%;
+    }
+
+    .hero__orb--2 {
+      width: 300px;
+      height: 300px;
+      background: rgba(0, 212, 255, 0.05);
+      bottom: 20%;
+      left: -5%;
+    }
+
+    @media (max-width: 480px) {
+      .hero__stats { gap: 24px; }
+      .hero__stat-number { font-size: 1.75rem; }
+    }
+
+    /* ============================
+       DIAGONAL DIVIDERS
+    ============================ */
+    .divider-top {
+      position: relative;
+    }
+
+    .divider-top::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: inherit;
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      z-index: 2;
+    }
+
+    .divider-bottom::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: inherit;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+      z-index: 2;
+    }
+
+    /* ============================
+       WHY CHOOSE US
+    ============================ */
+    .why {
+      position: relative;
+      padding: 120px 0 130px;
+      background: var(--surface);
+      z-index: 4;
+    }
+
+    .why__header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .why__header .section__tag { justify-content: center; }
+    .why__header .section__subtitle { margin: 0 auto; }
+
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .why__card {
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .why__icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 45, 85, 0.1);
+      border-radius: 16px;
+      color: var(--primary);
+    }
+
+    .why__icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .why__card-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .why__card-text {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .why__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    }
+
+    /* ============================
+       PROGRAMS
+    ============================ */
+    .programs {
+      position: relative;
+      padding: 120px 0 130px;
+      background: var(--bg);
+      z-index: 3;
+    }
+
+    .programs__header {
+      margin-bottom: 60px;
+    }
+
+    .programs__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .program__card {
+      min-height: 320px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+
+    .program__card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,15,0.92) 30%, rgba(10,10,15,0.45) 100%);
+      z-index: 1;
+      transition: background 0.4s ease;
+    }
+
+    .program__card:hover::before {
+      background: linear-gradient(to top, rgba(10,10,15,0.95) 20%, rgba(10,10,15,0.35) 100%);
+    }
+
+    .tilt-card__inner.program__card:hover {
+      transform: scale(1.02);
+    }
+
+    .program__card-content {
+      position: relative;
+      z-index: 2;
+      padding: 28px 24px;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .program__icon-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .program__icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 45, 85, 0.15);
+      border-radius: 10px;
+      backdrop-filter: blur(8px);
+    }
+
+    .program__icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--primary);
+    }
+
+    .program__intensity-label {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .program__title {
+      font-size: 1.375rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .program__desc {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    .program__bar-wrap {
+      margin-top: 4px;
+    }
+
+    .program__bar-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .program__bar-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .program__bar-value {
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .program__bar-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .program__bar-fill {
+      height: 100%;
+      width: 0;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .program__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      margin-top: 4px;
+      transition: gap 0.3s ease, color 0.3s ease;
+    }
+
+    .program__cta:hover {
+      gap: 14px;
+      color: var(--secondary);
+    }
+
+    .program__cta svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    @media (max-width: 1024px) {
+      .programs__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .programs__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    }
+
+    /* ============================
+       ABOUT TRAINER
+    ============================ */
+    .trainer {
+      position: relative;
+      padding: 130px 0;
+      background: var(--surface);
+      z-index: 4;
+      overflow: hidden;
+    }
+
+    .trainer__wrap {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .trainer__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .trainer__initials-ring {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: conic-gradient(var(--primary), var(--secondary), var(--accent), var(--primary));
+      padding: 4px;
+      animation: ringRotate 8s linear infinite;
+      box-shadow: 0 0 60px var(--primary-glow);
+    }
+
+    @keyframes ringRotate {
+      to { transform: rotate(360deg); }
+    }
+
+    .trainer__initials-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: ringRotateReverse 8s linear infinite;
+    }
+
+    @keyframes ringRotateReverse {
+      to { transform: rotate(-360deg); }
+    }
+
+    .trainer__initials-text {
+      font-family: var(--font-heading);
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: var(--text);
+      text-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    .trainer__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 100px;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .trainer__name {
+      font-size: clamp(2.4rem, 5vw, 3.3rem);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .trainer__creds {
+      font-size: 0.9375rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .trainer__bio {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .trainer__stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .trainer__stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trainer__stat-number {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .trainer__stat-number .counter-suffix {
+      color: var(--primary);
+    }
+
+    .trainer__stat-label {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .trainer__wrap {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+      .trainer__visual { order: -1; }
+      .trainer__bio { margin: 0 auto 36px; }
+      .trainer__stats { justify-content: center; }
+      .trainer__initials-ring { width: 180px; height: 180px; }
+      .trainer__initials-text { font-size: 3.5rem; }
+    }
+
+    /* ============================
+       TESTIMONIALS
+    ============================ */
+    .testimonials {
+      position: relative;
+      padding: 120px 0 130px;
+      background: var(--bg);
+      z-index: 3;
+    }
+
+    .testimonials__header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .testimonials__header .section__tag { justify-content: center; }
+    .testimonials__header .section__subtitle { margin: 0 auto; }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .testimonial__card {
+      padding: 36px 28px;
+      border-top: 3px solid var(--primary);
+    }
+
+    .testimonial__stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial__star svg {
+      width: 18px;
+      height: 18px;
+      color: var(--secondary);
+    }
+
+    .testimonial__text {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .testimonial__author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .testimonial__avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .testimonial__name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    .testimonial__role {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .testimonials__grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+
+    /* ============================
+       CONTACT
+    ============================ */
+    .contact {
+      position: relative;
+      padding: 120px 0 130px;
+      background: var(--surface);
+      z-index: 4;
+    }
+
+    .contact__wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .contact__form-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 40px;
+    }
+
+    .contact__form-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .contact__form-subtitle {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .form__group {
+      margin-bottom: 20px;
+    }
+
+    .form__label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .form__input,
+    .form__select {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-btn);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      min-height: 48px;
+    }
+
+    .form__input:focus,
+    .form__select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(255, 45, 85, 0.1);
+    }
+
+    .form__input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    .form__select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%238888A0' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+
+    .form__select option {
+      background: var(--card-bg);
+      color: var(--text);
+    }
+
+    .contact__info-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .contact__info-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .contact__info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact__info-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 45, 85, 0.1);
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .contact__info-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--primary);
+    }
+
+    .contact__info-label {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .contact__info-value {
+      font-size: 0.9375rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .contact__info-value a {
+      color: var(--text);
+      transition: color 0.3s ease;
+    }
+
+    .contact__info-value a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .contact__wrap { grid-template-columns: 1fr; }
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    .footer {
+      padding: 80px 0 32px;
+      background: var(--bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer__brand-text {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 300px;
+    }
+
+    .footer__col-title {
+      font-family: var(--font-heading);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .footer__link {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      padding: 6px 0;
+      transition: color 0.3s ease;
+    }
+
+    .footer__link:hover {
+      color: var(--primary);
+    }
+
+    .footer__socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .footer__social {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .footer__social:hover {
+      background: var(--primary);
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .footer__social svg {
+      width: 20px;
+      height: 20px;
+      color: var(--text-secondary);
+    }
+
+    .footer__social:hover svg {
+      color: #fff;
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer__copy {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    .footer__bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer__bottom-link {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+    }
+
+    .footer__bottom-link:hover { color: var(--primary); }
+
+    @media (max-width: 768px) {
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .footer__grid { grid-template-columns: 1fr; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+    }
+
+    /* ============================
+       WHATSAPP FAB
+    ============================ */
+    .fab-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: var(--whatsapp);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
+      animation: fabPulse 2.5s ease infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .fab-whatsapp:hover {
+      transform: scale(1.1);
+    }
+
+    .fab-whatsapp svg {
+      width: 30px;
+      height: 30px;
+      color: #fff;
+    }
+
+    @keyframes fabPulse {
+      0%, 100% { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 4px 40px rgba(37, 211, 102, 0.6), 0 0 60px rgba(37, 211, 102, 0.2); }
+    }
+
+    /* ============================
+       SCROLL REVEAL
+    ============================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+    .reveal--delay-4 { transition-delay: 0.4s; }
+    .reveal--delay-5 { transition-delay: 0.5s; }
+    .reveal--delay-6 { transition-delay: 0.6s; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== TOP INFO BAR ==================== -->
+  <div class="top-bar" id="topBar">
+    <div class="container top-bar__wrap">
+      <div class="top-bar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+919833968157">+91 9833968157</a>
+      </div>
+      <div class="top-bar__divider" aria-hidden="true"></div>
+      <div class="top-bar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:info@powerfit.in">info@powerfit.in</a>
+      </div>
+      <div class="top-bar__divider" aria-hidden="true"></div>
+      <div class="top-bar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Mon-Sat 5AM-11PM | Sun 6AM-10PM
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar" id="navbar" aria-label="Main navigation">
+    <div class="container navbar__wrap">
+      <a href="#" class="navbar__logo" aria-label="PowerFit Gym home">
+        <svg class="navbar__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="16" width="36" height="8" rx="4" fill="#FF2D55"/>
+          <rect x="6" y="10" width="6" height="20" rx="3" fill="#F0F0F5"/>
+          <rect x="28" y="10" width="6" height="20" rx="3" fill="#F0F0F5"/>
+          <rect x="0" y="13" width="4" height="14" rx="2" fill="#FF6B35"/>
+          <rect x="36" y="13" width="4" height="14" rx="2" fill="#FF6B35"/>
+        </svg>
+        <span class="navbar__logo-text">Power<span>Fit</span></span>
+      </a>
+
+      <div class="navbar__menu" id="navMenu">
+        <a href="#why" class="navbar__link">Why Us</a>
+        <a href="#programs" class="navbar__link">Programs</a>
+        <a href="#trainer" class="navbar__link">Trainer</a>
+        <a href="#testimonials" class="navbar__link">Results</a>
+        <a href="#contact" class="navbar__link">Contact</a>
+        <a href="https://wa.me/919833968157?text=Hi%20PowerFit!%20I%20want%20to%20join%20the%20gym." class="btn btn--primary navbar__cta" target="_blank" rel="noopener noreferrer" aria-label="Join now via WhatsApp">Join Now</a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="navbar__hamburger-line"></span>
+        <span class="navbar__hamburger-line"></span>
+        <span class="navbar__hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg-image" aria-hidden="true"></div>
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__grid-pattern" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+
+    <svg class="hero__diagonal" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,120 L1440,40 L1440,120 Z" fill="#141420"/>
+    </svg>
+
+    <div class="container hero__content">
+      <div class="hero__badge reveal">
+        <span class="hero__badge-dot" aria-hidden="true"></span>
+        Andheri West, Mumbai
+      </div>
+
+      <h1 class="hero__title reveal reveal--delay-1">
+        Transform Your<br>
+        <span class="hero__title-accent">Body</span>, Transform<br>
+        Your <span class="hero__title-accent">Life</span>
+      </h1>
+
+      <p class="hero__subtitle reveal reveal--delay-2">
+        Premium training facility with world-class equipment and certified coaches.
+        Your fitness journey starts here at PowerFit.
+      </p>
+
+      <div class="hero__actions reveal reveal--delay-3">
+        <a href="https://wa.me/919833968157?text=Hi%20PowerFit!%20I%20want%20to%20start%20my%20fitness%20journey." class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+          Start Your Journey
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#programs" class="btn btn--outline">
+          View Programs
+        </a>
+      </div>
+
+      <div class="hero__stats reveal reveal--delay-4">
+        <div class="hero__stat">
+          <div class="hero__stat-number">
+            <span class="counter" data-target="1000">0</span><span>+</span>
+          </div>
+          <div class="hero__stat-label">Active Members</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-number">
+            <span class="counter" data-target="8">0</span><span>+</span>
+          </div>
+          <div class="hero__stat-label">Years Strong</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-number">
+            <span class="counter" data-target="5">0</span>
+          </div>
+          <div class="hero__stat-label">Certified Trainers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHY CHOOSE US ==================== -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="why__header">
+        <div class="section__tag reveal">Why Choose Us</div>
+        <h2 class="section__title reveal reveal--delay-1">Built For <span style="color:var(--primary)">Results</span></h2>
+        <p class="section__subtitle reveal reveal--delay-2">We don't just build gyms. We build athletes, warriors, and the best versions of you.</p>
+      </div>
+
+      <div class="why__grid">
+        <!-- Card 1 -->
+        <div class="tilt-card reveal reveal--delay-1">
+          <div class="tilt-card__inner why__card">
+            <div class="tilt-card__shine"></div>
+            <div class="why__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="why__card-title">Expert Trainers</h3>
+            <p class="why__card-text">ACSM & NSCA certified coaches with 10+ years of experience training athletes at every level.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="tilt-card reveal reveal--delay-2">
+          <div class="tilt-card__inner why__card">
+            <div class="tilt-card__shine"></div>
+            <div class="why__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </div>
+            <h3 class="why__card-title">Modern Equipment</h3>
+            <p class="why__card-text">State-of-the-art machines, free weights, functional rigs, and cardio equipment from top global brands.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="tilt-card reveal reveal--delay-3">
+          <div class="tilt-card__inner why__card">
+            <div class="tilt-card__shine"></div>
+            <div class="why__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="why__card-title">Open 5AM - 11PM</h3>
+            <p class="why__card-text">Early risers or night owls, we've got you covered. Train on your schedule, not ours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROGRAMS ==================== -->
+  <section class="programs" id="programs">
+    <div class="container">
+      <div class="programs__header">
+        <div class="section__tag reveal">Our Programs</div>
+        <h2 class="section__title reveal reveal--delay-1">Find Your <span style="color:var(--primary)">Fire</span></h2>
+        <p class="section__subtitle reveal reveal--delay-2">From heavy iron to mindful flow. Choose the intensity that matches your ambition.</p>
+      </div>
+
+      <div class="programs__grid">
+        <!-- Weight Training -->
+        <div class="tilt-card reveal reveal--delay-1">
+          <div class="tilt-card__inner program__card" style="background-image:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=400&q=80');">
+            <div class="tilt-card__shine"></div>
+            <div class="program__card-content">
+              <div class="program__icon-row">
+                <div class="program__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="10" width="22" height="4" rx="2"/><rect x="4" y="7" width="3" height="10" rx="1"/><rect x="17" y="7" width="3" height="10" rx="1"/></svg>
+                </div>
+                <span class="program__intensity-label">Intensity</span>
+              </div>
+              <h3 class="program__title">Weight Training</h3>
+              <p class="program__desc">Build raw strength and sculpt your physique with our complete free weight and machine setup.</p>
+              <div class="program__bar-wrap">
+                <div class="program__bar-header">
+                  <span class="program__bar-label">Level</span>
+                  <span class="program__bar-value">90%</span>
+                </div>
+                <div class="program__bar-track">
+                  <div class="program__bar-fill intensity-bar" data-width="90" aria-label="Intensity 90%"></div>
+                </div>
+              </div>
+              <a href="https://wa.me/919833968157?text=Hi!%20I%27m%20interested%20in%20Weight%20Training%20at%20PowerFit." class="program__cta" target="_blank" rel="noopener noreferrer">
+                Enquire Now
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cardio Zone -->
+        <div class="tilt-card reveal reveal--delay-2">
+          <div class="tilt-card__inner program__card" style="background-image:url('https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=400&q=80');">
+            <div class="tilt-card__shine"></div>
+            <div class="program__card-content">
+              <div class="program__icon-row">
+                <div class="program__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <span class="program__intensity-label">Intensity</span>
+              </div>
+              <h3 class="program__title">Cardio Zone</h3>
+              <p class="program__desc">Treadmills, bikes, rowers, and HIIT circuits to torch calories and build endurance.</p>
+              <div class="program__bar-wrap">
+                <div class="program__bar-header">
+                  <span class="program__bar-label">Level</span>
+                  <span class="program__bar-value">70%</span>
+                </div>
+                <div class="program__bar-track">
+                  <div class="program__bar-fill intensity-bar" data-width="70" aria-label="Intensity 70%"></div>
+                </div>
+              </div>
+              <a href="https://wa.me/919833968157?text=Hi!%20I%27m%20interested%20in%20Cardio%20Training%20at%20PowerFit." class="program__cta" target="_blank" rel="noopener noreferrer">
+                Enquire Now
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CrossFit -->
+        <div class="tilt-card reveal reveal--delay-3">
+          <div class="tilt-card__inner program__card" style="background-image:url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=400&q=80');">
+            <div class="tilt-card__shine"></div>
+            <div class="program__card-content">
+              <div class="program__icon-row">
+                <div class="program__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <span class="program__intensity-label">Intensity</span>
+              </div>
+              <h3 class="program__title">CrossFit</h3>
+              <p class="program__desc">High-intensity functional training that pushes every limit. WODs, Olympic lifts, and grit.</p>
+              <div class="program__bar-wrap">
+                <div class="program__bar-header">
+                  <span class="program__bar-label">Level</span>
+                  <span class="program__bar-value">95%</span>
+                </div>
+                <div class="program__bar-track">
+                  <div class="program__bar-fill intensity-bar" data-width="95" aria-label="Intensity 95%"></div>
+                </div>
+              </div>
+              <a href="https://wa.me/919833968157?text=Hi!%20I%27m%20interested%20in%20CrossFit%20at%20PowerFit." class="program__cta" target="_blank" rel="noopener noreferrer">
+                Enquire Now
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Yoga -->
+        <div class="tilt-card reveal reveal--delay-4">
+          <div class="tilt-card__inner program__card" style="background-image:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=80');">
+            <div class="tilt-card__shine"></div>
+            <div class="program__card-content">
+              <div class="program__icon-row">
+                <div class="program__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12s1.5 2 4 2 4-2 4-2"/><path d="M9 8h.01M15 8h.01"/></svg>
+                </div>
+                <span class="program__intensity-label">Intensity</span>
+              </div>
+              <h3 class="program__title">Yoga & Flexibility</h3>
+              <p class="program__desc">Restore, recover, and build functional flexibility. Power yoga and guided meditation sessions.</p>
+              <div class="program__bar-wrap">
+                <div class="program__bar-header">
+                  <span class="program__bar-label">Level</span>
+                  <span class="program__bar-value">40%</span>
+                </div>
+                <div class="program__bar-track">
+                  <div class="program__bar-fill intensity-bar" data-width="40" aria-label="Intensity 40%"></div>
+                </div>
+              </div>
+              <a href="https://wa.me/919833968157?text=Hi!%20I%27m%20interested%20in%20Yoga%20at%20PowerFit." class="program__cta" target="_blank" rel="noopener noreferrer">
+                Enquire Now
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Training -->
+        <div class="tilt-card reveal reveal--delay-5">
+          <div class="tilt-card__inner program__card" style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80');">
+            <div class="tilt-card__shine"></div>
+            <div class="program__card-content">
+              <div class="program__icon-row">
+                <div class="program__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <span class="program__intensity-label">Intensity</span>
+              </div>
+              <h3 class="program__title">Personal Training</h3>
+              <p class="program__desc">One-on-one sessions tailored to your goals. Nutrition planning, progress tracking, accountability.</p>
+              <div class="program__bar-wrap">
+                <div class="program__bar-header">
+                  <span class="program__bar-label">Level</span>
+                  <span class="program__bar-value">85%</span>
+                </div>
+                <div class="program__bar-track">
+                  <div class="program__bar-fill intensity-bar" data-width="85" aria-label="Intensity 85%"></div>
+                </div>
+              </div>
+              <a href="https://wa.me/919833968157?text=Hi!%20I%27m%20interested%20in%20Personal%20Training%20at%20PowerFit." class="program__cta" target="_blank" rel="noopener noreferrer">
+                Enquire Now
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zumba -->
+        <div class="tilt-card reveal reveal--delay-6">
+          <div class="tilt-card__inner program__card" style="background-image:url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80');">
+            <div class="tilt-card__shine"></div>
+            <div class="program__card-content">
+              <div class="program__icon-row">
+                <div class="program__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                </div>
+                <span class="program__intensity-label">Intensity</span>
+              </div>
+              <h3 class="program__title">Zumba & Group</h3>
+              <p class="program__desc">High-energy dance fitness and group classes. Burn calories while having the time of your life.</p>
+              <div class="program__bar-wrap">
+                <div class="program__bar-header">
+                  <span class="program__bar-label">Level</span>
+                  <span class="program__bar-value">60%</span>
+                </div>
+                <div class="program__bar-track">
+                  <div class="program__bar-fill intensity-bar" data-width="60" aria-label="Intensity 60%"></div>
+                </div>
+              </div>
+              <a href="https://wa.me/919833968157?text=Hi!%20I%27m%20interested%20in%20Zumba%20at%20PowerFit." class="program__cta" target="_blank" rel="noopener noreferrer">
+                Enquire Now
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TRAINER ==================== -->
+  <section class="trainer" id="trainer">
+    <div class="container trainer__wrap">
+      <div class="trainer__visual reveal">
+        <div class="trainer__initials-ring">
+          <div class="trainer__initials-inner">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&crop=face" alt="Coach Vikram Rajput" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+          </div>
+        </div>
+      </div>
+
+      <div class="trainer__info">
+        <span class="trainer__tag reveal">Head Coach</span>
+        <h2 class="trainer__name reveal reveal--delay-1">Vikram Rajput</h2>
+        <p class="trainer__creds reveal reveal--delay-2">ACSM & NSCA Certified | Ex-National Athlete</p>
+        <p class="trainer__bio reveal reveal--delay-3">
+          With over a decade of experience transforming bodies and mindsets, Coach Vikram brings elite-level
+          training methodology to every session. A former national-level athlete, he combines sports science
+          with real-world intensity to deliver results that speak for themselves. His philosophy: no shortcuts,
+          no excuses, just relentless progress.
+        </p>
+        <div class="trainer__stats reveal reveal--delay-4">
+          <div class="trainer__stat">
+            <div class="trainer__stat-number">
+              <span class="counter" data-target="10">0</span><span class="counter-suffix">+</span>
+            </div>
+            <div class="trainer__stat-label">Years Experience</div>
+          </div>
+          <div class="trainer__stat">
+            <div class="trainer__stat-number">
+              <span class="counter" data-target="2500">0</span><span class="counter-suffix">+</span>
+            </div>
+            <div class="trainer__stat-label">Athletes Trained</div>
+          </div>
+          <div class="trainer__stat">
+            <div class="trainer__stat-number">
+              <span class="counter" data-target="3">0</span>
+            </div>
+            <div class="trainer__stat-label">Certifications</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials__header">
+        <div class="section__tag reveal">Testimonials</div>
+        <h2 class="section__title reveal reveal--delay-1">Real People, Real <span style="color:var(--primary)">Results</span></h2>
+        <p class="section__subtitle reveal reveal--delay-2">Don't take our word for it. Hear from the PowerFit family.</p>
+      </div>
+
+      <div class="testimonials__grid">
+        <!-- Testimonial 1 -->
+        <div class="tilt-card reveal reveal--delay-1">
+          <div class="tilt-card__inner testimonial__card">
+            <div class="tilt-card__shine"></div>
+            <div class="testimonial__stars" aria-label="5 out of 5 stars">
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            </div>
+            <p class="testimonial__text">"I lost 18 kgs in 6 months under Vikram sir's guidance. The personal attention and custom diet plan made all the difference. PowerFit isn't just a gym, it's a transformation center."</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face" alt="Rohit Sharma" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+              <div>
+                <div class="testimonial__name">Rohit Sharma</div>
+                <div class="testimonial__role">IT Professional, Member since 2023</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="tilt-card reveal reveal--delay-2">
+          <div class="tilt-card__inner testimonial__card">
+            <div class="tilt-card__shine"></div>
+            <div class="testimonial__stars" aria-label="5 out of 5 stars">
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            </div>
+            <p class="testimonial__text">"As a working mom, I needed flexible timings and effective workouts. The 5AM batch is perfect. The Zumba classes are addictive, and I've never felt stronger or more energized!"</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Priya Mehta" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+              <div>
+                <div class="testimonial__name">Priya Mehta</div>
+                <div class="testimonial__role">Entrepreneur, Member since 2022</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="tilt-card reveal reveal--delay-3">
+          <div class="tilt-card__inner testimonial__card">
+            <div class="tilt-card__shine"></div>
+            <div class="testimonial__stars" aria-label="5 out of 5 stars">
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="testimonial__star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            </div>
+            <p class="testimonial__text">"The CrossFit program here is no joke. Vikram pushes you past limits you didn't know you had. I've competed in two local competitions since joining. This place breeds warriors."</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" alt="Arjun Kapoor" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+              <div>
+                <div class="testimonial__name">Arjun Kapoor</div>
+                <div class="testimonial__role">Fitness Competitor, Member since 2021</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section__tag reveal" style="justify-content:center;text-align:center;">Get In Touch</div>
+      <h2 class="section__title reveal reveal--delay-1" style="text-align:center;margin-bottom:48px;">Ready To <span style="color:var(--primary)">Begin</span>?</h2>
+
+      <div class="contact__wrap">
+        <!-- Form -->
+        <div class="contact__form-card reveal reveal--delay-2">
+          <h3 class="contact__form-title">Send Us a Message</h3>
+          <p class="contact__form-subtitle">Fill the form and we'll reach out on WhatsApp.</p>
+
+          <form id="contactForm" aria-label="Contact form">
+            <div class="form__group">
+              <label for="contactName" class="form__label">Your Name</label>
+              <input type="text" id="contactName" class="form__input" placeholder="e.g. Rahul Verma" required autocomplete="name">
+            </div>
+            <div class="form__group">
+              <label for="contactPhone" class="form__label">Phone Number</label>
+              <input type="tel" id="contactPhone" class="form__input" placeholder="e.g. 9876543210" required autocomplete="tel" pattern="[0-9]{10}">
+            </div>
+            <div class="form__group">
+              <label for="contactProgram" class="form__label">Program Interest</label>
+              <select id="contactProgram" class="form__select" required>
+                <option value="" disabled selected>Select a program</option>
+                <option value="Weight Training">Weight Training</option>
+                <option value="Cardio Zone">Cardio Zone</option>
+                <option value="CrossFit">CrossFit</option>
+                <option value="Yoga & Flexibility">Yoga & Flexibility</option>
+                <option value="Personal Training">Personal Training</option>
+                <option value="Zumba & Group">Zumba & Group</option>
+                <option value="General Enquiry">General Enquiry</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label for="contactTime" class="form__label">Preferred Time</label>
+              <select id="contactTime" class="form__select" required>
+                <option value="" disabled selected>Select preferred time</option>
+                <option value="Early Morning (5AM-8AM)">Early Morning (5AM-8AM)</option>
+                <option value="Morning (8AM-11AM)">Morning (8AM-11AM)</option>
+                <option value="Afternoon (11AM-3PM)">Afternoon (11AM-3PM)</option>
+                <option value="Evening (3PM-7PM)">Evening (3PM-7PM)</option>
+                <option value="Night (7PM-11PM)">Night (7PM-11PM)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--whatsapp" style="width:100%;margin-top:8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Send via WhatsApp
+            </button>
+          </form>
+        </div>
+
+        <!-- Info -->
+        <div class="contact__info-card reveal reveal--delay-3">
+          <h3 class="contact__info-title">Gym Information</h3>
+
+          <div class="contact__info-item">
+            <div class="contact__info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact__info-label">Address</div>
+              <div class="contact__info-value">45 Link Road, Andheri West,<br>Mumbai 400053</div>
+            </div>
+          </div>
+
+          <div class="contact__info-item">
+            <div class="contact__info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact__info-label">Phone</div>
+              <div class="contact__info-value"><a href="https://wa.me/919833968157">+91 9833968157</a></div>
+            </div>
+          </div>
+
+          <div class="contact__info-item">
+            <div class="contact__info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact__info-label">Hours</div>
+              <div class="contact__info-value">Mon - Sat: 5:00 AM - 11:00 PM<br>Sunday: 6:00 AM - 10:00 PM</div>
+            </div>
+          </div>
+
+          <div class="contact__info-item">
+            <div class="contact__info-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact__info-label">Email</div>
+              <div class="contact__info-value"><a href="mailto:info@powerfitgym.in">info@powerfitgym.in</a></div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/919833968157?text=Hi%20PowerFit!%20I%20want%20to%20visit%20the%20gym%20for%20a%20trial%20session." class="btn btn--primary" style="margin-top:auto;text-align:center;width:100%;" target="_blank" rel="noopener noreferrer">
+            Book a Free Trial
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <a href="#" class="navbar__logo" aria-label="PowerFit Gym home">
+            <svg class="navbar__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2" y="16" width="36" height="8" rx="4" fill="#FF2D55"/>
+              <rect x="6" y="10" width="6" height="20" rx="3" fill="#F0F0F5"/>
+              <rect x="28" y="10" width="6" height="20" rx="3" fill="#F0F0F5"/>
+              <rect x="0" y="13" width="4" height="14" rx="2" fill="#FF6B35"/>
+              <rect x="36" y="13" width="4" height="14" rx="2" fill="#FF6B35"/>
+            </svg>
+            <span class="navbar__logo-text">Power<span>Fit</span></span>
+          </a>
+          <p class="footer__brand-text">Premium fitness facility in the heart of Andheri West. Building stronger bodies and stronger minds since 2016.</p>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Quick Links</h4>
+          <a href="#why" class="footer__link">Why Us</a>
+          <a href="#programs" class="footer__link">Programs</a>
+          <a href="#trainer" class="footer__link">Trainer</a>
+          <a href="#testimonials" class="footer__link">Results</a>
+          <a href="#contact" class="footer__link">Contact</a>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Programs</h4>
+          <a href="https://wa.me/919833968157?text=Hi!%20Tell%20me%20about%20Weight%20Training." class="footer__link" target="_blank" rel="noopener noreferrer">Weight Training</a>
+          <a href="https://wa.me/919833968157?text=Hi!%20Tell%20me%20about%20CrossFit." class="footer__link" target="_blank" rel="noopener noreferrer">CrossFit</a>
+          <a href="https://wa.me/919833968157?text=Hi!%20Tell%20me%20about%20Personal%20Training." class="footer__link" target="_blank" rel="noopener noreferrer">Personal Training</a>
+          <a href="https://wa.me/919833968157?text=Hi!%20Tell%20me%20about%20Yoga." class="footer__link" target="_blank" rel="noopener noreferrer">Yoga</a>
+          <a href="https://wa.me/919833968157?text=Hi!%20Tell%20me%20about%20Zumba." class="footer__link" target="_blank" rel="noopener noreferrer">Zumba</a>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Follow Us</h4>
+          <div class="footer__socials">
+            <a href="https://wa.me/919833968157" class="footer__social" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            </a>
+            <a href="https://wa.me/919833968157" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://wa.me/919833968157" class="footer__social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://wa.me/919833968157" class="footer__social" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">2024 PowerFit Gym, Andheri West. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="https://wa.me/919833968157" class="footer__bottom-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+          <a href="https://wa.me/919833968157" class="footer__bottom-link" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== WHATSAPP FAB ==================== -->
+  <a href="https://wa.me/919833968157?text=Hi%20PowerFit!%20I%20have%20a%20question." class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* ---------- HAMBURGER MENU ---------- */
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('navMenu');
+      const navLinks = navMenu.querySelectorAll('.navbar__link');
+
+      hamburger.addEventListener('click', function() {
+        const isOpen = navMenu.classList.toggle('navbar__menu--open');
+        hamburger.classList.toggle('navbar__hamburger--active');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('navbar__menu--open');
+          hamburger.classList.remove('navbar__hamburger--active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+
+      /* ---------- NAVBAR SCROLL SHADOW ---------- */
+      const navbar = document.getElementById('navbar');
+      const topBar = document.getElementById('topBar');
+      let lastScroll = 0;
+
+      window.addEventListener('scroll', function() {
+        var scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY > 50) {
+          navbar.classList.add('navbar--scrolled');
+          if (topBar) topBar.style.transform = 'translateY(-100%)';
+        } else {
+          navbar.classList.remove('navbar--scrolled');
+          if (topBar) topBar.style.transform = 'translateY(0)';
+        }
+        lastScroll = scrollY;
+      }, { passive: true });
+
+      /* ---------- SMOOTH SCROLL ---------- */
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          var target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            var offset = navbar.offsetHeight + 20;
+            var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        });
+      });
+
+      /* ---------- 3D TILT EFFECT ---------- */
+      var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+      if (!isTouchDevice) {
+        var tiltCards = document.querySelectorAll('.tilt-card');
+
+        tiltCards.forEach(function(card) {
+          var inner = card.querySelector('.tilt-card__inner');
+          var shine = card.querySelector('.tilt-card__shine');
+
+          card.addEventListener('mousemove', function(e) {
+            var rect = card.getBoundingClientRect();
+            var x = e.clientX - rect.left;
+            var y = e.clientY - rect.top;
+            var centerX = rect.width / 2;
+            var centerY = rect.height / 2;
+
+            var rotateX = ((y - centerY) / centerY) * -10;
+            var rotateY = ((x - centerX) / centerX) * 10;
+
+            inner.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
+
+            if (shine) {
+              var shineX = (x / rect.width) * 100;
+              var shineY = (y / rect.height) * 100;
+              shine.style.background = 'radial-gradient(circle at ' + shineX + '% ' + shineY + '%, rgba(255,255,255,0.12), transparent 60%)';
+            }
+          });
+
+          card.addEventListener('mouseleave', function() {
+            inner.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            inner.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease';
+          });
+
+          card.addEventListener('mouseenter', function() {
+            inner.style.transition = 'box-shadow 0.3s ease';
+          });
+        });
+      }
+
+      /* ---------- INTERSECTION OBSERVER: REVEALS ---------- */
+      var revealElements = document.querySelectorAll('.reveal');
+
+      var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal--visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      revealElements.forEach(function(el) {
+        revealObserver.observe(el);
+      });
+
+      /* ---------- ANIMATED COUNTERS ---------- */
+      var counters = document.querySelectorAll('.counter');
+      var counterAnimated = new Set();
+
+      function animateCounter(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var duration = 2000;
+        var startTime = null;
+
+        function easeOutExpo(t) {
+          return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+        }
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var easedProgress = easeOutExpo(progress);
+          var current = Math.floor(easedProgress * target);
+          el.textContent = current.toLocaleString('en-IN');
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = target.toLocaleString('en-IN');
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !counterAnimated.has(entry.target)) {
+            counterAnimated.add(entry.target);
+            animateCounter(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(function(c) {
+        counterObserver.observe(c);
+      });
+
+      /* ---------- INTENSITY BARS ---------- */
+      var intensityBars = document.querySelectorAll('.intensity-bar');
+      var barAnimated = new Set();
+
+      var barObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !barAnimated.has(entry.target)) {
+            barAnimated.add(entry.target);
+            var width = entry.target.getAttribute('data-width');
+            entry.target.style.width = width + '%';
+          }
+        });
+      }, { threshold: 0.3 });
+
+      intensityBars.forEach(function(bar) {
+        barObserver.observe(bar);
+      });
+
+      /* ---------- CONTACT FORM -> WHATSAPP ---------- */
+      var contactForm = document.getElementById('contactForm');
+
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var name = document.getElementById('contactName').value.trim();
+        var phone = document.getElementById('contactPhone').value.trim();
+        var program = document.getElementById('contactProgram').value;
+        var time = document.getElementById('contactTime').value;
+
+        if (!name || !phone || !program || !time) return;
+
+        var message = 'Hi PowerFit! I\'m interested in joining.\n\n' +
+          'Name: ' + name + '\n' +
+          'Phone: ' + phone + '\n' +
+          'Program: ' + program + '\n' +
+          'Preferred Time: ' + time;
+
+        var encoded = encodeURIComponent(message);
+        var url = 'https://wa.me/919833968157?text=' + encoded;
+
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
+
+    })();
+  </script>
+</body>
+</html>

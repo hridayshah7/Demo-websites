@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmileCare Dental | Premium Dentistry in Bandra West, Mumbai</title>
+  <meta name="description" content="SmileCare Dental Clinic, Bandra West Mumbai. Dr. Priya Sharma (BDS MDS) offers painless dentistry, braces, implants, root canal & more. 12+ years experience. Book via WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN TOKENS
+    ================================================================ */
+    :root {
+      --primary: #0D7C8F;
+      --primary-dark: #0A616F;
+      --primary-light: #10A3B8;
+      --accent: #F0B429;
+      --bg: #FFFFFF;
+      --surface: #F7FAFA;
+      --text: #1A2332;
+      --text-secondary: #5A6B7F;
+      --whatsapp: #25D366;
+      --radius-card: 20px;
+      --radius-btn: 12px;
+      --shadow-soft: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-hover: 0 12px 40px rgba(0,0,0,0.10);
+      --shadow-nav: 0 2px 20px rgba(0,0,0,0.06);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ================================================================
+       RESET & BASE
+    ================================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      font-weight: 400;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
+    button, input, select, textarea {
+      font-family: inherit; font-size: inherit; border: none; outline: none; background: none;
+    }
+    button { cursor: pointer; }
+    ::selection { background: var(--primary-light); color: #fff; }
+
+    /* ================================================================
+       UTILITY
+    ================================================================ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .section-label__dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+    .section-title {
+      font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      min-height: 48px;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:focus-visible { outline: 3px solid var(--primary-light); outline-offset: 3px; }
+    .btn:active { transform: translateY(0); }
+    .btn--primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(13,124,143,0.3);
+    }
+    .btn--primary:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 8px 28px rgba(13,124,143,0.35);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn--outline:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn--whatsapp {
+      background: var(--whatsapp);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+    }
+    .btn--whatsapp:hover {
+      background: #20bd5a;
+      box-shadow: 0 8px 28px rgba(37,211,102,0.35);
+    }
+    .btn__icon { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger { transition-delay: var(--stagger, 0ms); }
+
+    /* ================================================================
+       TOP INFO BAR
+    ================================================================ */
+    .top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1001;
+      background: var(--primary-dark);
+      height: 36px;
+      display: flex;
+      align-items: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.9);
+    }
+    .top-bar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .top-bar__item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .top-bar__item svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+    .top-bar__item a {
+      color: inherit;
+      transition: color 0.2s;
+    }
+    .top-bar__item a:hover { color: #fff; }
+    @media (max-width: 640px) {
+      .top-bar__inner { gap: 16px; font-size: 0.7rem; }
+      .top-bar__item:nth-child(3) { display: none; }
+    }
+
+    /* ================================================================
+       NAVBAR
+    ================================================================ */
+    .navbar {
+      position: fixed;
+      top: 36px; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: box-shadow 0.3s ease;
+      height: 72px;
+    }
+    .navbar--scrolled { box-shadow: var(--shadow-nav); }
+    .navbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .navbar__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+    .navbar__logo svg { width: 36px; height: 36px; }
+    .navbar__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .navbar__link {
+      position: relative;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+      padding: 4px 0;
+    }
+    .navbar__link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    .navbar__link:hover,
+    .navbar__link:focus { color: var(--primary); }
+    .navbar__link:hover::after,
+    .navbar__link:focus::after { width: 100%; }
+    .navbar__cta { margin-left: 8px; }
+    .navbar__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+    }
+    .navbar__hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .navbar__hamburger--open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .navbar__hamburger--open span:nth-child(2) { opacity: 0; }
+    .navbar__hamburger--open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile nav overlay */
+    .navbar__mobile {
+      display: none;
+      position: fixed;
+      top: 108px; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      z-index: 999;
+    }
+    .navbar__mobile--open { display: flex; }
+    .navbar__mobile .navbar__link {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .navbar__links { display: none; }
+      .navbar__hamburger { display: flex; }
+    }
+
+    /* ================================================================
+       HERO — PARALLAX
+    ================================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80') center/cover no-repeat;
+      padding-top: 108px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.45) 100%);
+      z-index: 1;
+    }
+    /* Parallax floating decorative elements */
+    .hero__deco {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      will-change: transform;
+    }
+    .hero__deco--1 {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(13,124,143,0.07) 0%, transparent 70%);
+      top: -80px; right: -100px;
+      animation: floatSlow 8s ease-in-out infinite;
+    }
+    .hero__deco--2 {
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(240,180,41,0.08) 0%, transparent 70%);
+      bottom: 60px; left: -60px;
+      animation: floatSlow 10s ease-in-out infinite reverse;
+    }
+    .hero__deco--3 {
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(16,163,184,0.06) 0%, transparent 70%);
+      top: 30%; left: 55%;
+      animation: floatSlow 7s ease-in-out infinite 1s;
+    }
+    .hero__deco--4 {
+      width: 80px; height: 80px;
+      background: var(--accent);
+      opacity: 0.08;
+      top: 20%; right: 20%;
+      animation: floatSlow 6s ease-in-out infinite 0.5s;
+    }
+    .hero__deco--5 {
+      width: 50px; height: 50px;
+      border: 2px solid rgba(13,124,143,0.1);
+      background: transparent;
+      bottom: 30%; right: 10%;
+      animation: floatSlow 9s ease-in-out infinite 2s;
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-20px) translateX(8px); }
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      padding: 60px 0 100px;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .hero__badge svg { width: 16px; height: 16px; }
+    .hero__title {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .hero__title span {
+      background: linear-gradient(135deg, var(--primary-light) 0%, #5de0f5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero__subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 500px;
+      font-weight: 400;
+    }
+    .hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .hero__stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .hero__stat {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(8px);
+    }
+    .hero__stat-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero__stat-icon--patients { background: rgba(13,124,143,0.1); }
+    .hero__stat-icon--years { background: rgba(240,180,41,0.12); }
+    .hero__stat-icon--cert { background: rgba(37,211,102,0.1); }
+    .hero__stat-icon svg { width: 22px; height: 22px; }
+    .hero__stat-number {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .hero__stat-label {
+      font-size: 0.75rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+    /* Wave SVG at bottom */
+    .hero__wave {
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      width: 100%;
+      z-index: 3;
+      line-height: 0;
+    }
+    .hero__wave svg { width: 100%; height: auto; display: block; }
+
+    @media (max-width: 768px) {
+      .hero__content { padding: 40px 0 80px; }
+      .hero__stats { gap: 16px; }
+      .hero__stat { padding: 10px 14px; }
+      .hero__stat-number { font-size: 1.1rem; }
+    }
+    @media (max-width: 480px) {
+      .hero__actions { flex-direction: column; }
+      .hero__actions .btn { width: 100%; justify-content: center; }
+    }
+
+    /* ================================================================
+       WHY CHOOSE US
+    ================================================================ */
+    .why {
+      padding: 100px 0;
+      background: var(--bg);
+      position: relative;
+    }
+    .why__header { text-align: center; margin-bottom: 56px; }
+    .why__header .section-subtitle { margin: 0 auto; }
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .why__card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .why__card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .why__card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .why__card:hover::before { opacity: 1; }
+    .why__card-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: rgba(13,124,143,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .why__card-icon svg { width: 28px; height: 28px; color: var(--primary); }
+    .why__card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .why__card-text {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .why__card-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    @media (max-width: 768px) {
+      .why__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    }
+
+    /* ================================================================
+       SERVICES
+    ================================================================ */
+    .services {
+      padding: 100px 0;
+      background: var(--surface);
+      position: relative;
+    }
+    .services__header { text-align: center; margin-bottom: 56px; }
+    .services__header .section-subtitle { margin: 0 auto; }
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .services__card {
+      border-radius: 16px;
+      min-height: 280px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .services__card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.15) 100%);
+      transition: background var(--transition);
+      z-index: 1;
+      border-radius: inherit;
+    }
+    .services__card:hover::before {
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.08) 100%);
+    }
+    .services__card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .services__card-icon { display: none; }
+    .services__card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+    .services__card-text {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+    .services__card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      transition: gap 0.3s ease, color 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+    .services__card-link:hover { color: #fff; }
+    .services__card-link svg { width: 16px; height: 16px; transition: transform 0.3s ease; }
+    .services__card:hover .services__card-link svg { transform: translateX(4px); }
+    @media (max-width: 1024px) { .services__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 580px) { .services__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+
+    /* ================================================================
+       ABOUT DOCTOR
+    ================================================================ */
+    .about {
+      padding: 100px 0;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .about__deco {
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,180,41,0.06) 0%, transparent 70%);
+      top: -60px; right: -60px;
+      pointer-events: none;
+      animation: floatSlow 10s ease-in-out infinite;
+    }
+    .about__inner {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about__photo {
+      position: relative;
+    }
+    .about__photo-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-card);
+      background: linear-gradient(160deg, var(--primary) 0%, var(--primary-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about__photo-initials {
+      font-size: 5rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.05em;
+    }
+    .about__photo-badge {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      background: var(--accent);
+      color: var(--text);
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(240,180,41,0.3);
+    }
+    .about__info { position: relative; z-index: 2; }
+    .about__name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .about__title {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .about__bio {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+    .about__credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .about__credential {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .about__credential-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(13,124,143,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .about__credential-icon svg { width: 18px; height: 18px; color: var(--primary); }
+    @media (max-width: 768px) {
+      .about__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .about__photo { max-width: 320px; margin: 0 auto; }
+      .about__credentials { align-items: center; }
+    }
+
+    /* ================================================================
+       TESTIMONIALS — HORIZONTAL SCROLL
+    ================================================================ */
+    .testimonials {
+      padding: 100px 0;
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .testimonials__header { text-align: center; margin-bottom: 48px; }
+    .testimonials__header .section-subtitle { margin: 0 auto; }
+    .testimonials__track-wrapper { position: relative; }
+    .testimonials__track {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 16px 24px 32px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .testimonials__track::-webkit-scrollbar { display: none; }
+    .testimonials__card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
+      background: var(--bg);
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+    .testimonials__card:first-child { margin-left: calc((100vw - 1200px) / 2); }
+    .testimonials__card:last-child { margin-right: calc((100vw - 1200px) / 2); }
+    .testimonials__card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .testimonials__stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .testimonials__stars svg { width: 18px; height: 18px; color: var(--accent); fill: var(--accent); }
+    .testimonials__text {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonials__quote-icon {
+      position: absolute;
+      top: 20px; right: 24px;
+      opacity: 0.06;
+    }
+    .testimonials__quote-icon svg { width: 48px; height: 48px; }
+    .testimonials__author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonials__avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .testimonials__author-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .testimonials__author-loc {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+    .testimonials__dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 32px;
+    }
+    .testimonials__dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(13,124,143,0.2);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      padding: 0;
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonials__dot::after {
+      content: '';
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: inherit;
+    }
+    .testimonials__dot { background: transparent; }
+    .testimonials__dot::after { background: rgba(13,124,143,0.2); transition: background 0.3s, transform 0.3s; }
+    .testimonials__dot--active::after { background: var(--primary); transform: scale(1.3); }
+    @media (max-width: 1248px) {
+      .testimonials__card:first-child { margin-left: 24px; }
+      .testimonials__card:last-child { margin-right: 24px; }
+    }
+    @media (max-width: 480px) {
+      .testimonials__card { flex: 0 0 290px; }
+    }
+
+    /* ================================================================
+       CONTACT / BOOKING
+    ================================================================ */
+    .contact {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .contact__header { text-align: center; margin-bottom: 56px; }
+    .contact__header .section-subtitle { margin: 0 auto; }
+    .contact__inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .contact__form-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 40px 36px;
+    }
+    .contact__form { display: flex; flex-direction: column; gap: 20px; }
+    .contact__field { display: flex; flex-direction: column; gap: 6px; }
+    .contact__label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .contact__input,
+    .contact__select {
+      padding: 14px 16px;
+      border: 2px solid #e8ecf0;
+      border-radius: var(--radius-btn);
+      font-size: 0.92rem;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      min-height: 48px;
+      width: 100%;
+    }
+    .contact__input:focus,
+    .contact__select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13,124,143,0.1);
+    }
+    .contact__input::placeholder { color: #b0b8c4; }
+    .contact__select { cursor: pointer; -webkit-appearance: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235A6B7F' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+    .contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .contact__submit { margin-top: 8px; width: 100%; justify-content: center; }
+
+    .contact__info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .contact__info-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+    }
+    .contact__info-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .contact__info-items { display: flex; flex-direction: column; gap: 16px; }
+    .contact__info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .contact__info-icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: rgba(13,124,143,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact__info-icon svg { width: 18px; height: 18px; color: var(--primary); }
+    .contact__map-placeholder {
+      background: linear-gradient(135deg, var(--surface) 0%, #e8f4f5 100%);
+      border-radius: var(--radius-card);
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      gap: 8px;
+    }
+    .contact__map-placeholder svg { width: 22px; height: 22px; color: var(--primary); }
+    @media (max-width: 768px) {
+      .contact__inner { grid-template-columns: 1fr; }
+      .contact__row { grid-template-columns: 1fr; }
+    }
+
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+    .footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 64px 0 32px;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer__brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer__brand-name svg { width: 28px; height: 28px; }
+    .footer__brand-text {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer__socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .footer__social {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+      min-width: 44px;
+      min-height: 44px;
+    }
+    .footer__social:hover { background: var(--primary); }
+    .footer__social svg { width: 18px; height: 18px; color: rgba(255,255,255,0.8); }
+    .footer__heading {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .footer__links { display: flex; flex-direction: column; gap: 10px; }
+    .footer__link {
+      font-size: 0.85rem;
+      transition: color 0.3s ease;
+      padding: 2px 0;
+    }
+    .footer__link:hover { color: #fff; }
+    .footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    @media (max-width: 768px) {
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer__grid { grid-template-columns: 1fr; }
+      .footer__bottom { justify-content: center; text-align: center; }
+    }
+
+    /* ================================================================
+       WHATSAPP FAB
+    ================================================================ */
+    .fab-whatsapp {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+      z-index: 900;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fabPulse 2.5s ease-in-out infinite;
+    }
+    .fab-whatsapp:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+      animation: none;
+    }
+    .fab-whatsapp svg { width: 28px; height: 28px; }
+    @keyframes fabPulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 6px 24px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0.12); }
+    }
+    .fab-whatsapp__tooltip {
+      position: absolute;
+      right: 72px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--text);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .fab-whatsapp:hover .fab-whatsapp__tooltip { opacity: 1; }
+
+    /* ================================================================
+       RESPONSIVE SECTION SPACING (MOBILE)
+    ================================================================ */
+    @media (max-width: 768px) {
+      .why, .services, .about, .testimonials, .contact {
+        padding: 80px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       TOP INFO BAR
+  ============================================================ -->
+  <div class="top-bar" aria-label="Clinic contact info">
+    <div class="top-bar__inner">
+      <span class="top-bar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <a href="tel:+919833968157">+91 9833968157</a>
+      </span>
+      <span class="top-bar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <a href="mailto:hello@smilecare.in">hello@smilecare.in</a>
+      </span>
+      <span class="top-bar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        Mon-Sat 8AM - 9PM
+      </span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar__inner">
+      <a href="#home" class="navbar__logo" aria-label="SmileCare Dental Home">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20 4C14 4 10 8 8 12C6 16 7 22 10 28C12 32 15 36 17 38C18.5 39.5 19.5 39.5 20 39C20.5 39.5 21.5 39.5 23 38C25 36 28 32 30 28C33 22 34 16 32 12C30 8 26 4 20 4Z" fill="currentColor" opacity="0.15"/>
+          <path d="M20 6C15 6 11.5 9.5 10 13C8 17 9 22 11.5 27.5C13.5 31.5 16 34.5 18 36.5C19 37.5 19.5 37.5 20 37C20.5 37.5 21 37.5 22 36.5C24 34.5 26.5 31.5 28.5 27.5C31 22 32 17 30 13C28.5 9.5 25 6 20 6Z" stroke="currentColor" stroke-width="2" fill="none"/>
+          <circle cx="15.5" cy="17" r="3" fill="currentColor" opacity="0.3"/>
+          <circle cx="24.5" cy="17" r="3" fill="currentColor" opacity="0.3"/>
+          <path d="M16 23C17 25 19 26 20 26C21 26 23 25 24 23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
+        SmileCare
+      </a>
+
+      <div class="navbar__links" id="navLinks">
+        <a href="#home" class="navbar__link">Home</a>
+        <a href="#why" class="navbar__link">Why Us</a>
+        <a href="#services" class="navbar__link">Services</a>
+        <a href="#about" class="navbar__link">About Doctor</a>
+        <a href="#contact" class="navbar__link">Contact</a>
+        <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%20want%20to%20book%20an%20appointment%20at%20SmileCare%20Dental."
+           class="btn btn--primary navbar__cta" target="_blank" rel="noopener noreferrer" aria-label="Book Appointment via WhatsApp">
+          Book Appointment
+        </a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="navbar__mobile" id="mobileNav" role="menu">
+      <a href="#home" class="navbar__link" role="menuitem">Home</a>
+      <a href="#why" class="navbar__link" role="menuitem">Why Us</a>
+      <a href="#services" class="navbar__link" role="menuitem">Services</a>
+      <a href="#about" class="navbar__link" role="menuitem">About Doctor</a>
+      <a href="#contact" class="navbar__link" role="menuitem">Contact</a>
+      <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%20want%20to%20book%20an%20appointment%20at%20SmileCare%20Dental."
+         class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+        Book Appointment
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO — PARALLAX
+  ============================================================ -->
+  <section class="hero" id="home" aria-label="Hero section">
+    <!-- Floating parallax decorations -->
+    <div class="hero__deco hero__deco--1" data-parallax="0.04"></div>
+    <div class="hero__deco hero__deco--2" data-parallax="0.06"></div>
+    <div class="hero__deco hero__deco--3" data-parallax="0.03"></div>
+    <div class="hero__deco hero__deco--4" data-parallax="0.05"></div>
+    <div class="hero__deco hero__deco--5" data-parallax="0.07"></div>
+
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__badge reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          Trusted by 500+ Families in Mumbai
+        </div>
+
+        <h1 class="hero__title reveal">
+          Your Smile,<br>Our <span>Priority</span>
+        </h1>
+
+        <p class="hero__subtitle reveal">
+          Experience gentle, world-class dental care at SmileCare Dental in Bandra West.
+          Dr. Priya Sharma and her team ensure every visit is comfortable, painless, and leaves you smiling.
+        </p>
+
+        <div class="hero__actions reveal">
+          <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%20want%20to%20book%20an%20appointment%20at%20SmileCare%20Dental."
+             class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Book Appointment on WhatsApp">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Book Appointment
+          </a>
+          <a href="#services" class="btn btn--outline">
+            Explore Services
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="hero__stat reveal">
+            <div class="hero__stat-icon hero__stat-icon--patients">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0D7C8F" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div>
+              <div class="hero__stat-number" data-count="500" data-suffix="+">0</div>
+              <div class="hero__stat-label">Happy Patients</div>
+            </div>
+          </div>
+          <div class="hero__stat reveal" style="--stagger:100ms">
+            <div class="hero__stat-icon hero__stat-icon--years">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F0B429" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <div class="hero__stat-number" data-count="12" data-suffix="+">0</div>
+              <div class="hero__stat-label">Years Experience</div>
+            </div>
+          </div>
+          <div class="hero__stat reveal" style="--stagger:200ms">
+            <div class="hero__stat-icon hero__stat-icon--cert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><polyline points="9 12 11 14 15 10"/>
+              </svg>
+            </div>
+            <div>
+              <div class="hero__stat-number" data-count="0" data-suffix="" data-text="NABH">NABH</div>
+              <div class="hero__stat-label">Certified Clinic</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__wave">
+      <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 40C240 80 480 100 720 80C960 60 1200 20 1440 40V100H0V40Z" fill="#ffffff"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY CHOOSE US
+  ============================================================ -->
+  <section class="why" id="why" aria-label="Why choose us">
+    <div class="container">
+      <div class="why__header">
+        <div class="section-label reveal"><span class="section-label__dot"></span>Why SmileCare</div>
+        <h2 class="section-title reveal">Why Families Trust Us</h2>
+        <p class="section-subtitle reveal">Three pillars of care that set us apart from every other dental clinic in Mumbai.</p>
+      </div>
+
+      <div class="why__grid">
+        <!-- Card 1 -->
+        <div class="why__card reveal reveal-stagger" style="--stagger:0ms">
+          <div class="why__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <div class="why__card-number" data-count="10" data-suffix="+">0</div>
+          <h3 class="why__card-title">Years of Experience</h3>
+          <p class="why__card-text">Over a decade of clinical excellence treating complex and routine dental cases with precision and care.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="why__card reveal reveal-stagger" style="--stagger:120ms">
+          <div class="why__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="why__card-number" data-count="100" data-suffix="%">0</div>
+          <h3 class="why__card-title">Painless Procedures</h3>
+          <p class="why__card-text">Advanced numbing techniques and gentle hands mean you barely feel a thing. Dental anxiety ends here.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="why__card reveal reveal-stagger" style="--stagger:240ms">
+          <div class="why__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="why__card-number" data-count="7" data-suffix=" Days">0</div>
+          <h3 class="why__card-title">Flexible Timing</h3>
+          <p class="why__card-text">Open Monday to Sunday with early morning and late evening slots. We work around your schedule, not the other way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES
+  ============================================================ -->
+  <section class="services" id="services" aria-label="Our services">
+    <div class="container">
+      <div class="services__header">
+        <div class="section-label reveal"><span class="section-label__dot"></span>Our Services</div>
+        <h2 class="section-title reveal">Complete Dental Solutions</h2>
+        <p class="section-subtitle reveal">From routine check-ups to advanced cosmetic work, every treatment under one roof.</p>
+      </div>
+
+      <div class="services__grid">
+        <!-- Teeth Cleaning -->
+        <div class="services__card reveal reveal-stagger" style="--stagger:0ms;background-image:url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&q=80')">
+          <div class="services__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M7 21C5 17 4 14 4 11C4 7 7 4 12 4C17 4 20 7 20 11C20 14 19 17 17 21"/>
+              <path d="M12 4V8"/><path d="M8 6L10 9"/><path d="M16 6L14 9"/>
+            </svg>
+          </div>
+          <h3 class="services__card-title">Teeth Cleaning</h3>
+          <p class="services__card-text">Professional scaling and polishing to remove plaque, tartar, and surface stains for a brighter, healthier smile.</p>
+          <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%27m%20interested%20in%20Teeth%20Cleaning%20at%20SmileCare." class="services__card-link" target="_blank" rel="noopener noreferrer">
+            Book Now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Braces & Aligners -->
+        <div class="services__card reveal reveal-stagger" style="--stagger:100ms;background-image:url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&q=80')">
+          <div class="services__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <rect x="3" y="9" width="4" height="6" rx="1"/><rect x="10" y="9" width="4" height="6" rx="1"/><rect x="17" y="9" width="4" height="6" rx="1"/><line x1="7" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="17" y2="12"/>
+            </svg>
+          </div>
+          <h3 class="services__card-title">Braces & Aligners</h3>
+          <p class="services__card-text">Metal braces, ceramic braces, and invisible aligners. Straighten your teeth with the option that suits your lifestyle.</p>
+          <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%27m%20interested%20in%20Braces%20%26%20Aligners%20at%20SmileCare." class="services__card-link" target="_blank" rel="noopener noreferrer">
+            Book Now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Root Canal -->
+        <div class="services__card reveal reveal-stagger" style="--stagger:200ms;background-image:url('https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&q=80')">
+          <div class="services__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M12 2C8 2 6 5 6 8C6 11 7 14 8 18C8.5 20 9 22 10 22C11 22 11.5 20 12 18C12.5 20 13 22 14 22C15 22 15.5 20 16 18C17 14 18 11 18 8C18 5 16 2 12 2Z"/>
+            </svg>
+          </div>
+          <h3 class="services__card-title">Root Canal</h3>
+          <p class="services__card-text">Painless, single-sitting root canal therapy using rotary endodontics. Save your natural tooth without the stress.</p>
+          <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%27m%20interested%20in%20Root%20Canal%20treatment%20at%20SmileCare." class="services__card-link" target="_blank" rel="noopener noreferrer">
+            Book Now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Teeth Whitening -->
+        <div class="services__card reveal reveal-stagger" style="--stagger:300ms;background-image:url('https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=400&q=80')">
+          <div class="services__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3 class="services__card-title">Teeth Whitening</h3>
+          <p class="services__card-text">In-clinic LED whitening and take-home kits for a dazzling white smile. Visible results in just one session.</p>
+          <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%27m%20interested%20in%20Teeth%20Whitening%20at%20SmileCare." class="services__card-link" target="_blank" rel="noopener noreferrer">
+            Book Now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Dental Implants -->
+        <div class="services__card reveal reveal-stagger" style="--stagger:400ms;background-image:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=80')">
+          <div class="services__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M12 2v4"/><path d="M8 6h8"/><rect x="9" y="6" width="6" height="4" rx="1"/><path d="M10 10L9 22"/><path d="M14 10L15 22"/><line x1="9" y1="14" x2="15" y2="14"/><line x1="9" y1="18" x2="15" y2="18"/>
+            </svg>
+          </div>
+          <h3 class="services__card-title">Dental Implants</h3>
+          <p class="services__card-text">Permanent titanium implants that look, feel, and function like natural teeth. A lasting solution for missing teeth.</p>
+          <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%27m%20interested%20in%20Dental%20Implants%20at%20SmileCare." class="services__card-link" target="_blank" rel="noopener noreferrer">
+            Book Now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Kids Dentistry -->
+        <div class="services__card reveal reveal-stagger" style="--stagger:500ms;background-image:url('https://images.unsplash.com/photo-1514849302-984523450cf4?w=400&q=80')">
+          <div class="services__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+          </div>
+          <h3 class="services__card-title">Kids Dentistry</h3>
+          <p class="services__card-text">Child-friendly environment with gentle care. Fluoride treatments, sealants, and cavity prevention for little smiles.</p>
+          <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%27m%20interested%20in%20Kids%20Dentistry%20at%20SmileCare." class="services__card-link" target="_blank" rel="noopener noreferrer">
+            Book Now
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT DOCTOR
+  ============================================================ -->
+  <section class="about" id="about" aria-label="About Dr. Priya Sharma">
+    <div class="about__deco" aria-hidden="true"></div>
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__photo reveal">
+          <div class="about__photo-frame">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=face" alt="Dr. Priya Sharma" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+          </div>
+          <div class="about__photo-badge">12+ Years</div>
+        </div>
+
+        <div class="about__info">
+          <div class="section-label reveal"><span class="section-label__dot"></span>Meet Your Dentist</div>
+          <h2 class="about__name reveal">Dr. Priya Sharma</h2>
+          <p class="about__title reveal">BDS, MDS (Prosthodontics)</p>
+          <p class="about__bio reveal">
+            Dr. Priya Sharma is one of Bandra's most trusted dental professionals, known for her gentle approach and meticulous clinical skill. After completing her BDS and MDS from Mumbai University with a Gold Medal in Prosthodontics, she founded SmileCare Dental with a simple mission: make quality dental care accessible, painless, and genuinely pleasant.
+          </p>
+          <p class="about__bio reveal">
+            With over 12 years of hands-on experience, she has treated thousands of patients across all age groups, specializing in smile makeovers, dental implants, and full-mouth rehabilitation. She regularly attends international conferences to stay at the forefront of dental innovation.
+          </p>
+
+          <div class="about__credentials reveal">
+            <div class="about__credential">
+              <div class="about__credential-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/>
+                </svg>
+              </div>
+              BDS, MDS - Mumbai University Gold Medalist
+            </div>
+            <div class="about__credential">
+              <div class="about__credential-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+                </svg>
+              </div>
+              Maharashtra Dental Council Registered
+            </div>
+            <div class="about__credential">
+              <div class="about__credential-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </div>
+              12+ Years Clinical Experience
+            </div>
+          </div>
+
+          <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20SmileCare%20Dental."
+             class="btn btn--primary reveal" target="_blank" rel="noopener noreferrer">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Book a Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS — HORIZONTAL SCROLL CAROUSEL
+  ============================================================ -->
+  <section class="testimonials" id="testimonials" aria-label="Patient testimonials">
+    <div class="container">
+      <div class="testimonials__header">
+        <div class="section-label reveal"><span class="section-label__dot"></span>Testimonials</div>
+        <h2 class="section-title reveal">What Our Patients Say</h2>
+        <p class="section-subtitle reveal">Real stories from real patients across Mumbai who chose SmileCare for their dental care.</p>
+      </div>
+    </div>
+
+    <div class="testimonials__track-wrapper">
+      <div class="testimonials__track" id="testimonialTrack" role="list" aria-label="Testimonials carousel">
+        <!-- Testimonial 1 -->
+        <div class="testimonials__card" role="listitem">
+          <div class="testimonials__quote-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <div class="testimonials__stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonials__text">"I was terrified of dentists my entire life. Dr. Priya completely changed that. My root canal was genuinely painless and the entire team made me feel so comfortable. I actually look forward to my check-ups now!"</p>
+          <div class="testimonials__author">
+            <div class="testimonials__avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="Rahul Kapoor" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+            <div>
+              <div class="testimonials__author-name">Rahul Kapoor</div>
+              <div class="testimonials__author-loc">Bandra West, Mumbai</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonials__card" role="listitem">
+          <div class="testimonials__quote-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <div class="testimonials__stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonials__text">"Got my braces done here and the transformation is incredible. Dr. Sharma explained everything clearly, the monthly adjustments were always quick, and the results speak for themselves. Best decision I ever made."</p>
+          <div class="testimonials__author">
+            <div class="testimonials__avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Anjali Mehta" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+            <div>
+              <div class="testimonials__author-name">Anjali Mehta</div>
+              <div class="testimonials__author-loc">Khar West, Mumbai</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonials__card" role="listitem">
+          <div class="testimonials__quote-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <div class="testimonials__stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonials__text">"Both my kids love visiting Dr. Priya. She has this amazing way of making children feel at ease. The clinic is spotless, the staff is warm, and we never have to wait more than 5 minutes. Highly recommended for families!"</p>
+          <div class="testimonials__author">
+            <div class="testimonials__avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face" alt="Sneha Desai" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+            <div>
+              <div class="testimonials__author-name">Sneha Desai</div>
+              <div class="testimonials__author-loc">Pali Hill, Mumbai</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonials__card" role="listitem">
+          <div class="testimonials__quote-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <div class="testimonials__stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonials__text">"My dental implants look and feel completely natural. Dr. Sharma's precision is remarkable. The procedure was spread over a few visits and each time I was well-informed about what to expect. Worth every rupee."</p>
+          <div class="testimonials__author">
+            <div class="testimonials__avatar">VP</div>
+            <div>
+              <div class="testimonials__author-name">Vikram Patil</div>
+              <div class="testimonials__author-loc">Juhu, Mumbai</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="testimonials__card" role="listitem">
+          <div class="testimonials__quote-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <div class="testimonials__stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonials__text">"I got teeth whitening done before my wedding and the results were stunning. Three shades whiter in one session! The entire process was comfortable and the staff made it feel like a spa experience. Thank you, SmileCare!"</p>
+          <div class="testimonials__author">
+            <div class="testimonials__avatar">NJ</div>
+            <div>
+              <div class="testimonials__author-name">Neha Joshi</div>
+              <div class="testimonials__author-loc">Santacruz West, Mumbai</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials__dots" id="testimonialDots" aria-label="Testimonial navigation">
+        <button class="testimonials__dot testimonials__dot--active" data-index="0" aria-label="Go to testimonial 1"></button>
+        <button class="testimonials__dot" data-index="1" aria-label="Go to testimonial 2"></button>
+        <button class="testimonials__dot" data-index="2" aria-label="Go to testimonial 3"></button>
+        <button class="testimonials__dot" data-index="3" aria-label="Go to testimonial 4"></button>
+        <button class="testimonials__dot" data-index="4" aria-label="Go to testimonial 5"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT / BOOKING
+  ============================================================ -->
+  <section class="contact" id="contact" aria-label="Contact and booking">
+    <div class="container">
+      <div class="contact__header">
+        <div class="section-label reveal"><span class="section-label__dot"></span>Get in Touch</div>
+        <h2 class="section-title reveal">Book Your Appointment</h2>
+        <p class="section-subtitle reveal">Fill the form below and we will connect with you on WhatsApp to confirm your slot.</p>
+      </div>
+
+      <div class="contact__inner">
+        <div class="contact__form-card reveal">
+          <form class="contact__form" id="bookingForm" novalidate>
+            <div class="contact__field">
+              <label class="contact__label" for="contactName">Full Name</label>
+              <input class="contact__input" type="text" id="contactName" name="name" placeholder="Enter your full name" required autocomplete="name">
+            </div>
+            <div class="contact__field">
+              <label class="contact__label" for="contactPhone">Phone Number</label>
+              <input class="contact__input" type="tel" id="contactPhone" name="phone" placeholder="+91 98339 68157" required autocomplete="tel">
+            </div>
+            <div class="contact__field">
+              <label class="contact__label" for="contactService">Service Needed</label>
+              <select class="contact__select" id="contactService" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="Teeth Cleaning">Teeth Cleaning</option>
+                <option value="Braces & Aligners">Braces & Aligners</option>
+                <option value="Root Canal">Root Canal</option>
+                <option value="Teeth Whitening">Teeth Whitening</option>
+                <option value="Dental Implants">Dental Implants</option>
+                <option value="Kids Dentistry">Kids Dentistry</option>
+                <option value="General Consultation">General Consultation</option>
+              </select>
+            </div>
+            <div class="contact__row">
+              <div class="contact__field">
+                <label class="contact__label" for="contactDate">Preferred Date</label>
+                <input class="contact__input" type="date" id="contactDate" name="date">
+              </div>
+              <div class="contact__field">
+                <label class="contact__label" for="contactTime">Preferred Time</label>
+                <select class="contact__select" id="contactTime" name="time">
+                  <option value="" disabled selected>Select time</option>
+                  <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
+                  <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                  <option value="12:00 PM - 2:00 PM">12:00 PM - 2:00 PM</option>
+                  <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
+                  <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
+                  <option value="6:00 PM - 9:00 PM">6:00 PM - 9:00 PM</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--whatsapp contact__submit">
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Send via WhatsApp
+            </button>
+          </form>
+        </div>
+
+        <div class="contact__info reveal">
+          <div class="contact__info-card">
+            <h3 class="contact__info-title">Clinic Information</h3>
+            <div class="contact__info-items">
+              <div class="contact__info-item">
+                <div class="contact__info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Address</strong><br>
+                  23, Hill Road, Bandra West,<br>Mumbai 400050, Maharashtra
+                </div>
+              </div>
+              <div class="contact__info-item">
+                <div class="contact__info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Phone</strong><br>
+                  <a href="https://wa.me/919833968157" target="_blank" rel="noopener noreferrer" style="color:var(--primary);font-weight:500;">+91 98339 68157</a>
+                </div>
+              </div>
+              <div class="contact__info-item">
+                <div class="contact__info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Working Hours</strong><br>
+                  Mon - Sat: 8:00 AM - 9:00 PM<br>
+                  Sun: 10:00 AM - 2:00 PM
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact__map-placeholder" aria-label="Map placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Bandra West, Mumbai 400050
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M20 6C15 6 11.5 9.5 10 13C8 17 9 22 11.5 27.5C13.5 31.5 16 34.5 18 36.5C19 37.5 19.5 37.5 20 37C20.5 37.5 21 37.5 22 36.5C24 34.5 26.5 31.5 28.5 27.5C31 22 32 17 30 13C28.5 9.5 25 6 20 6Z" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M16 23C17 25 19 26 20 26C21 26 23 25 24 23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            </svg>
+            SmileCare Dental
+          </div>
+          <p class="footer__brand-text">Your trusted neighborhood dental clinic in Bandra West, Mumbai. Gentle, modern, and affordable dental care for the whole family.</p>
+          <div class="footer__socials">
+            <a href="https://wa.me/919833968157" class="footer__social" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="https://wa.me/919833968157" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://wa.me/919833968157" class="footer__social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://wa.me/919833968157" class="footer__social" aria-label="Google Maps" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <div class="footer__links">
+            <a href="#home" class="footer__link">Home</a>
+            <a href="#why" class="footer__link">Why Us</a>
+            <a href="#services" class="footer__link">Services</a>
+            <a href="#about" class="footer__link">About Doctor</a>
+            <a href="#contact" class="footer__link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Services</h4>
+          <div class="footer__links">
+            <a href="https://wa.me/919833968157?text=Hi%2C%20I%27m%20interested%20in%20Teeth%20Cleaning." class="footer__link" target="_blank" rel="noopener noreferrer">Teeth Cleaning</a>
+            <a href="https://wa.me/919833968157?text=Hi%2C%20I%27m%20interested%20in%20Braces." class="footer__link" target="_blank" rel="noopener noreferrer">Braces & Aligners</a>
+            <a href="https://wa.me/919833968157?text=Hi%2C%20I%27m%20interested%20in%20Root%20Canal." class="footer__link" target="_blank" rel="noopener noreferrer">Root Canal</a>
+            <a href="https://wa.me/919833968157?text=Hi%2C%20I%27m%20interested%20in%20Teeth%20Whitening." class="footer__link" target="_blank" rel="noopener noreferrer">Teeth Whitening</a>
+            <a href="https://wa.me/919833968157?text=Hi%2C%20I%27m%20interested%20in%20Dental%20Implants." class="footer__link" target="_blank" rel="noopener noreferrer">Dental Implants</a>
+            <a href="https://wa.me/919833968157?text=Hi%2C%20I%27m%20interested%20in%20Kids%20Dentistry." class="footer__link" target="_blank" rel="noopener noreferrer">Kids Dentistry</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__links">
+            <span class="footer__link">23, Hill Road</span>
+            <span class="footer__link">Bandra West, Mumbai 400050</span>
+            <a href="https://wa.me/919833968157" class="footer__link" target="_blank" rel="noopener noreferrer">+91 98339 68157</a>
+            <span class="footer__link">Mon-Sat: 8AM - 9PM</span>
+            <span class="footer__link">Sun: 10AM - 2PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2024 SmileCare Dental Clinic. All rights reserved.</span>
+        <span>Designed with care in Mumbai</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       WHATSAPP FAB
+  ============================================================ -->
+  <a href="https://wa.me/919833968157?text=Hi%20Dr.%20Priya%2C%20I%20want%20to%20book%20an%20appointment%20at%20SmileCare%20Dental."
+     class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="fab-whatsapp__tooltip">Chat with us</span>
+  </a>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* ---- HAMBURGER MENU ---- */
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobileNav');
+      const mobileLinks = mobileNav.querySelectorAll('.navbar__link, .btn');
+
+      hamburger.addEventListener('click', function() {
+        const open = this.classList.toggle('navbar__hamburger--open');
+        mobileNav.classList.toggle('navbar__mobile--open', open);
+        this.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('navbar__hamburger--open');
+          mobileNav.classList.remove('navbar__mobile--open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+
+      /* ---- NAVBAR SCROLL SHADOW ---- */
+      const navbar = document.getElementById('navbar');
+      var lastScrollY = 0;
+      function handleNavScroll() {
+        var sy = window.scrollY || window.pageYOffset;
+        navbar.classList.toggle('navbar--scrolled', sy > 20);
+        lastScrollY = sy;
+      }
+      window.addEventListener('scroll', handleNavScroll, { passive: true });
+      handleNavScroll();
+
+      /* ---- PARALLAX EFFECT ---- */
+      var parallaxEls = document.querySelectorAll('[data-parallax]');
+      function handleParallax() {
+        var sy = window.scrollY || window.pageYOffset;
+        for (var i = 0; i < parallaxEls.length; i++) {
+          var el = parallaxEls[i];
+          var speed = parseFloat(el.getAttribute('data-parallax'));
+          el.style.transform = 'translateY(' + (sy * speed * -1) + 'px)';
+        }
+      }
+      window.addEventListener('scroll', handleParallax, { passive: true });
+
+      /* ---- ANIMATED NUMBER COUNTERS ---- */
+      function animateCounter(el) {
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var text = el.getAttribute('data-text') || '';
+
+        if (text && target === 0) {
+          el.textContent = text;
+          return;
+        }
+
+        var duration = 2000;
+        var startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          // Ease out cubic
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = Math.floor(eased * target);
+          el.textContent = current + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = target + suffix;
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      var counterEls = document.querySelectorAll('[data-count]');
+      var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      counterEls.forEach(function(el) { counterObserver.observe(el); });
+
+      /* ---- STAGGERED REVEAL ANIMATION ---- */
+      var revealEls = document.querySelectorAll('.reveal');
+      var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var delay = getComputedStyle(entry.target).getPropertyValue('--stagger');
+            if (delay && delay.trim() !== '0ms') {
+              setTimeout(function() {
+                entry.target.classList.add('reveal--visible');
+              }, parseInt(delay, 10));
+            } else {
+              entry.target.classList.add('reveal--visible');
+            }
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(function(el) { revealObserver.observe(el); });
+
+      /* ---- HORIZONTAL SCROLL TESTIMONIALS WITH DOTS ---- */
+      var track = document.getElementById('testimonialTrack');
+      var dots = document.querySelectorAll('.testimonials__dot');
+      var cards = track.querySelectorAll('.testimonials__card');
+
+      function getActiveIndex() {
+        var trackRect = track.getBoundingClientRect();
+        var trackCenter = trackRect.left + trackRect.width * 0.3;
+        var closestIndex = 0;
+        var closestDist = Infinity;
+
+        cards.forEach(function(card, i) {
+          var cardRect = card.getBoundingClientRect();
+          var cardCenter = cardRect.left + cardRect.width / 2;
+          var dist = Math.abs(cardCenter - trackCenter);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closestIndex = i;
+          }
+        });
+        return closestIndex;
+      }
+
+      function updateDots() {
+        var active = getActiveIndex();
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('testimonials__dot--active', i === active);
+        });
+      }
+
+      track.addEventListener('scroll', updateDots, { passive: true });
+
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          var index = parseInt(this.getAttribute('data-index'), 10);
+          var target = cards[index];
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+          }
+        });
+      });
+
+      /* ---- BOOKING FORM -> WHATSAPP ---- */
+      var form = document.getElementById('bookingForm');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var name = document.getElementById('contactName').value.trim();
+        var phone = document.getElementById('contactPhone').value.trim();
+        var service = document.getElementById('contactService').value;
+        var date = document.getElementById('contactDate').value;
+        var time = document.getElementById('contactTime').value;
+
+        if (!name || !phone || !service) {
+          alert('Please fill in your name, phone number, and select a service.');
+          return;
+        }
+
+        var message = 'Hi Dr. Priya, I would like to book an appointment at SmileCare Dental.\n\n';
+        message += 'Name: ' + name + '\n';
+        message += 'Phone: ' + phone + '\n';
+        message += 'Service: ' + service + '\n';
+        if (date) message += 'Preferred Date: ' + date + '\n';
+        if (time) message += 'Preferred Time: ' + time + '\n';
+        message += '\nPlease confirm my appointment. Thank you!';
+
+        var url = 'https://wa.me/919833968157?text=' + encodeURIComponent(message);
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
+
+      /* ---- SMOOTH SCROLL FOR ANCHOR LINKS ---- */
+      document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            var offset = 72; // navbar height
+            var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>

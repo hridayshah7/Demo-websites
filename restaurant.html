@@ -1,0 +1,2636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saffron Kitchen | Fine Indian Dining | Koramangala, Bangalore</title>
+  <meta name="description" content="Saffron Kitchen by Chef Arjun Nair. Le Cordon Bleu trained, 15 years of culinary mastery. Fine Indian dining in Koramangala, Bangalore. Reserve via WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN TOKENS
+    ================================================================ */
+    :root {
+      --primary: #8B4513;
+      --primary-dark: #6B3410;
+      --primary-light: #A0522D;
+      --accent: #C41E3A;
+      --gold: #C5963A;
+      --bg: #FAF6F1;
+      --surface: #F0E8DC;
+      --card-bg: #FFFFFF;
+      --text: #2C1810;
+      --text-secondary: #6B5B4E;
+      --whatsapp: #25D366;
+      --shadow: 0 4px 20px rgba(44,24,16,0.08);
+      --shadow-lg: 0 8px 40px rgba(44,24,16,0.12);
+      --ff-heading: 'Playfair Display', Georgia, serif;
+      --ff-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+      --radius-card: 16px;
+      --radius-sharp: 0px;
+      --nav-height: 80px;
+      --topbar-height: 36px;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ================================================================
+       RESET & BASE
+    ================================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      scroll-padding-top: calc(var(--nav-height) + var(--topbar-height));
+    }
+
+    body {
+      font-family: var(--ff-body);
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
+    button, input, select, textarea { font: inherit; border: none; outline: none; background: none; }
+    button { cursor: pointer; }
+
+    /* ================================================================
+       UTILITY: CONTAINERS
+    ================================================================ */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container--narrow {
+      max-width: 960px;
+    }
+
+    /* ================================================================
+       TEXT REVEAL ANIMATION SYSTEM
+    ================================================================ */
+    .reveal-line {
+      overflow: hidden;
+      display: block;
+    }
+
+    .reveal-line__inner {
+      display: block;
+      transform: translateY(110%);
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-line.is-visible .reveal-line__inner {
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .reveal-stagger .reveal-line:nth-child(1) .reveal-line__inner { transition-delay: 0s; }
+    .reveal-stagger .reveal-line:nth-child(2) .reveal-line__inner { transition-delay: 0.12s; }
+    .reveal-stagger .reveal-line:nth-child(3) .reveal-line__inner { transition-delay: 0.24s; }
+    .reveal-stagger .reveal-line:nth-child(4) .reveal-line__inner { transition-delay: 0.36s; }
+    .reveal-stagger .reveal-line:nth-child(5) .reveal-line__inner { transition-delay: 0.48s; }
+
+    /* Fade-up variant for paragraphs */
+    .reveal-fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-fade.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-fade.delay-1 { transition-delay: 0.15s; }
+    .reveal-fade.delay-2 { transition-delay: 0.3s; }
+    .reveal-fade.delay-3 { transition-delay: 0.45s; }
+    .reveal-fade.delay-4 { transition-delay: 0.6s; }
+
+    /* ================================================================
+       DECORATIVE ELEMENTS
+    ================================================================ */
+    .editorial-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      display: block;
+    }
+
+    .editorial-rule--long {
+      width: 120px;
+    }
+
+    .editorial-rule--center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-label {
+      font-family: var(--ff-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* ================================================================
+       TOP INFO BAR
+    ================================================================ */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--topbar-height);
+      background: #2C1810;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .topbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: nowrap;
+    }
+
+    .topbar__item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 400;
+      color: #C5963A;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .topbar__item a {
+      color: #C5963A;
+      transition: color 0.3s ease;
+    }
+
+    .topbar__item a:hover {
+      color: #E8D5C0;
+    }
+
+    .topbar__item svg {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+
+    .topbar__divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(197, 150, 58, 0.3);
+    }
+
+    @media (max-width: 767px) {
+      .topbar__inner { gap: 16px; }
+      .topbar__item { font-size: 10px; }
+      .topbar__item--email { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .topbar__item--hours { display: none; }
+    }
+
+    /* ================================================================
+       NAVBAR
+    ================================================================ */
+    .navbar {
+      position: fixed;
+      top: var(--topbar-height);
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      background: rgba(250, 246, 241, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(197, 150, 58, 0.15);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .navbar.is-scrolled {
+      box-shadow: 0 2px 20px rgba(44, 24, 16, 0.06);
+    }
+
+    .navbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .navbar__brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .navbar__logo-icon {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+    }
+
+    .navbar__brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .navbar__brand-name {
+      font-family: var(--ff-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: 0.5px;
+    }
+
+    .navbar__brand-sub {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    .navbar__links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .navbar__link {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .navbar__link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .navbar__link:hover,
+    .navbar__link.is-active {
+      color: var(--primary-dark);
+    }
+
+    .navbar__link:hover::after,
+    .navbar__link.is-active::after {
+      width: 100%;
+    }
+
+    .navbar__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: var(--primary);
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: var(--radius-sharp);
+      transition: background 0.3s ease, transform 0.2s ease;
+      min-height: 44px;
+    }
+
+    .navbar__cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .navbar__cta svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Hamburger */
+    .navbar__hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .navbar__hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .navbar__hamburger.is-open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5.5px);
+    }
+    .navbar__hamburger.is-open span:nth-child(2) {
+      opacity: 0;
+    }
+    .navbar__hamburger.is-open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5.5px);
+    }
+
+    /* Mobile nav */
+    .navbar__mobile {
+      display: none;
+      position: fixed;
+      top: calc(var(--nav-height) + var(--topbar-height));
+      left: 0;
+      width: 100%;
+      height: calc(100vh - var(--nav-height) - var(--topbar-height));
+      background: var(--bg);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      z-index: 999;
+    }
+
+    .navbar__mobile.is-open {
+      display: flex;
+    }
+
+    .navbar__mobile .navbar__link {
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+
+    .navbar__mobile .navbar__cta {
+      margin-top: 16px;
+    }
+
+    @media (max-width: 1023px) {
+      .navbar__links { display: none; }
+      .navbar__cta--desktop { display: none; }
+      .navbar__hamburger { display: flex; }
+    }
+
+    /* ================================================================
+       HERO — SPLIT SCREEN
+    ================================================================ */
+    .hero {
+      padding-top: calc(var(--nav-height) + var(--topbar-height));
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: visible;
+    }
+
+    .hero__split {
+      display: flex;
+      width: 100%;
+      min-height: calc(100vh - var(--nav-height) - var(--topbar-height));
+      overflow: visible;
+    }
+
+    .hero__left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 48px 80px 0;
+      padding-left: max(24px, calc((100vw - 1280px) / 2 + 24px));
+      max-width: 55%;
+      overflow: visible;
+    }
+
+    .hero__label {
+      margin-bottom: 28px;
+    }
+
+    .hero__headline {
+      font-family: var(--ff-heading);
+      font-weight: 700;
+      font-size: clamp(48px, 6.3vw, 88px);
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    .hero__headline em {
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .hero__subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 460px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hero__ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      min-height: 52px;
+      transition: all 0.3s ease;
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .btn--primary {
+      background: var(--primary);
+      color: #FFF;
+      border-radius: var(--radius-sharp);
+    }
+
+    .btn--primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139, 69, 19, 0.3);
+    }
+
+    .btn--outline {
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      border-radius: var(--radius-sharp);
+    }
+
+    .btn--outline:hover {
+      background: var(--primary);
+      color: #FFF;
+      transform: translateY(-2px);
+    }
+
+    .hero__stats {
+      display: flex;
+      gap: 40px;
+      padding-bottom: 8px;
+    }
+
+    .hero__stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero__stat-value {
+      font-family: var(--ff-heading);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .hero__stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    /* Hero right — decorative panel */
+    .hero__right {
+      flex: 1;
+      max-width: 45%;
+      position: relative;
+      overflow: hidden;
+      background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(139, 69, 19, 0.3);
+      z-index: 0;
+    }
+
+    .hero__right-watermark {
+      position: absolute;
+      font-family: var(--ff-heading);
+      font-size: clamp(200px, 22vw, 340px);
+      font-weight: 700;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.08);
+      line-height: 0.85;
+      user-select: none;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .hero__right-decor {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .hero__spice-icon {
+      width: 80px;
+      height: 80px;
+      opacity: 0.4;
+    }
+
+    .hero__spice-icon path,
+    .hero__spice-icon line {
+      stroke: #E8D5C0;
+    }
+
+    .hero__right-quote {
+      font-family: var(--ff-heading);
+      font-style: italic;
+      font-size: 22px;
+      color: #FAF6F1;
+      text-align: center;
+      max-width: 280px;
+      line-height: 1.5;
+      opacity: 0.85;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .hero__right-ornament {
+      width: 40px;
+      height: 1px;
+      background: rgba(197, 150, 58, 0.6);
+    }
+
+    /* Hero divider — editorial gold line */
+    .hero__divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* ================================================================
+       WHY CHOOSE US — EDITORIAL ALTERNATING
+    ================================================================ */
+    .why {
+      padding: 140px 0;
+    }
+
+    .why__header {
+      text-align: center;
+      margin-bottom: 100px;
+    }
+
+    .why__header .section-label {
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .why__header .section-label::before {
+      display: none;
+    }
+
+    .why__title {
+      font-family: var(--ff-heading);
+      font-size: clamp(42px, 4.6vw, 64px);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .why__title em {
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .why__items {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .why__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 60px;
+      max-width: 900px;
+    }
+
+    .why__item:nth-child(odd) {
+      margin-right: auto;
+    }
+
+    .why__item:nth-child(even) {
+      margin-left: auto;
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    .why__item-number {
+      font-family: var(--ff-heading);
+      font-size: 96px;
+      font-weight: 700;
+      line-height: 0.85;
+      color: var(--surface);
+      flex-shrink: 0;
+      min-width: 100px;
+      transition: color 0.5s ease;
+    }
+
+    .why__item:hover .why__item-number {
+      color: rgba(197, 150, 58, 0.2);
+    }
+
+    .why__item:nth-child(even) .why__item-number {
+      text-align: right;
+    }
+
+    .why__item-content {
+      padding-top: 8px;
+    }
+
+    .why__item-title {
+      font-family: var(--ff-heading);
+      font-size: clamp(30px, 3.4vw, 42px);
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .why__item-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 440px;
+    }
+
+    .why__item:nth-child(even) .why__item-desc {
+      margin-left: auto;
+    }
+
+    .why__item-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      color: var(--gold);
+    }
+
+    .why__item:nth-child(even) .why__item-icon {
+      margin-left: auto;
+    }
+
+    /* ================================================================
+       MENU HIGHLIGHTS — HORIZONTAL SCROLL
+    ================================================================ */
+    .menu-section {
+      padding: 140px 0 120px;
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .menu-section__header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .menu-section__header .section-label {
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .menu-section__header .section-label::before { display: none; }
+
+    .menu-section__title {
+      font-family: var(--ff-heading);
+      font-size: clamp(42px, 4.6vw, 64px);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .menu-section__title em {
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .menu-section__subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-top: 16px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Horizontal scroll track */
+    .menu-scroll {
+      display: flex;
+      gap: 28px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 max(24px, calc((100vw - 1280px) / 2 + 24px));
+      padding-bottom: 20px;
+      scrollbar-width: none;
+    }
+
+    .menu-scroll::-webkit-scrollbar { display: none; }
+
+    .menu-card {
+      flex: 0 0 320px;
+      min-height: 440px;
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      scroll-snap-align: start;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .menu-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44, 24, 16, 0.92) 0%, rgba(44, 24, 16, 0.6) 50%, rgba(44, 24, 16, 0.25) 100%);
+      z-index: 0;
+      transition: background 0.3s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(44, 24, 16, 0.3);
+    }
+
+    .menu-card:hover::before {
+      background: linear-gradient(to top, rgba(44, 24, 16, 0.95) 0%, rgba(44, 24, 16, 0.55) 50%, rgba(44, 24, 16, 0.2) 100%);
+    }
+
+    .menu-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-card__icon {
+      display: none;
+    }
+
+    .menu-card__number {
+      font-family: var(--ff-heading);
+      font-size: 80px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.06);
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      line-height: 1;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .menu-card__name {
+      font-family: var(--ff-heading);
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.25;
+      color: #FFFFFF;
+    }
+
+    .menu-card__desc {
+      font-size: 15px;
+      color: rgba(228, 216, 200, 0.85);
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .menu-card__price {
+      margin-top: 28px;
+      font-family: var(--ff-heading);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .menu-card__rule {
+      width: 40px;
+      height: 1px;
+      background: rgba(197, 150, 58, 0.5);
+      margin-top: 24px;
+    }
+
+    .menu-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: gap 0.3s ease;
+    }
+
+    .menu-card__cta:hover {
+      gap: 14px;
+      color: #E8D5C0;
+    }
+
+    .menu-card__cta svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Scroll dots */
+    .menu-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 36px;
+    }
+
+    .menu-dots__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: 0.2;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-dots__dot::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: block;
+    }
+
+    .menu-dots__dot {
+      background: transparent;
+    }
+
+    .menu-dots__dot.is-active::after {
+      opacity: 1;
+      transform: scale(1.3);
+      background: var(--primary);
+    }
+
+    .menu-dots__dot:not(.is-active)::after {
+      opacity: 0.25;
+    }
+
+    /* ================================================================
+       ABOUT CHEF — EDITORIAL SPLIT
+    ================================================================ */
+    .chef {
+      padding: 140px 0;
+      position: relative;
+    }
+
+    .chef__split {
+      display: flex;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .chef__left {
+      flex: 1;
+    }
+
+    .chef__label {
+      margin-bottom: 24px;
+    }
+
+    .chef__title {
+      font-family: var(--ff-heading);
+      font-size: clamp(42px, 4.6vw, 60px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+
+    .chef__title em {
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .chef__bio {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      max-width: 500px;
+    }
+
+    .chef__credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .chef__credential {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: var(--surface);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .chef__credential svg {
+      width: 16px;
+      height: 16px;
+      color: var(--gold);
+    }
+
+    /* Chef right — decorative */
+    .chef__right {
+      flex: 1;
+      max-width: 460px;
+      position: relative;
+    }
+
+    .chef__right-card {
+      background: linear-gradient(160deg, var(--surface) 0%, #E8D5C0 100%);
+      border-radius: var(--radius-card);
+      padding: 60px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chef__right-initials {
+      font-family: var(--ff-heading);
+      font-size: 120px;
+      font-weight: 700;
+      font-style: italic;
+      color: rgba(139, 69, 19, 0.08);
+      line-height: 1;
+      margin-bottom: 32px;
+    }
+
+    .chef__right-border {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      border: 1px solid rgba(197, 150, 58, 0.2);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .chef__pullquote {
+      font-family: var(--ff-heading);
+      font-style: italic;
+      font-size: 22px;
+      color: var(--primary);
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+
+    .chef__pullquote-mark {
+      font-family: var(--ff-heading);
+      font-size: 80px;
+      color: var(--gold);
+      line-height: 0.5;
+      opacity: 0.3;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .chef__pullquote-author {
+      font-family: var(--ff-body);
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-top: 24px;
+      display: block;
+    }
+
+    /* ================================================================
+       TESTIMONIALS — EDITORIAL OVERSIZED QUOTES
+    ================================================================ */
+    .testimonials {
+      padding: 140px 0;
+      background: var(--surface);
+      position: relative;
+    }
+
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .testimonials__header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .testimonials__header .section-label {
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .testimonials__header .section-label::before { display: none; }
+
+    .testimonials__title {
+      font-family: var(--ff-heading);
+      font-size: clamp(42px, 4.6vw, 64px);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .testimonials__title em {
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 48px 36px 40px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .testimonial-card__quote-mark {
+      font-family: var(--ff-heading);
+      font-size: 120px;
+      line-height: 0.6;
+      color: var(--gold);
+      opacity: 0.15;
+      position: absolute;
+      top: 20px;
+      left: 28px;
+      pointer-events: none;
+    }
+
+    .testimonial-card__text {
+      font-family: var(--ff-heading);
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 28px;
+    }
+
+    .testimonial-card__rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .testimonial-card__author {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .testimonial-card__location {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .testimonial-card__stars {
+      display: flex;
+      gap: 3px;
+      margin-top: 12px;
+    }
+
+    .testimonial-card__stars svg {
+      width: 16px;
+      height: 16px;
+      color: var(--gold);
+    }
+
+    /* ================================================================
+       CONTACT / RESERVATION
+    ================================================================ */
+    .contact {
+      padding: 140px 0;
+      position: relative;
+    }
+
+    .contact__header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .contact__header .section-label {
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .contact__header .section-label::before { display: none; }
+
+    .contact__title {
+      font-family: var(--ff-heading);
+      font-size: clamp(42px, 4.6vw, 64px);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .contact__title em {
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .contact__subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-top: 16px;
+    }
+
+    .contact__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Reservation Form */
+    .reserve-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 48px 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .reserve-card__title {
+      font-family: var(--ff-heading);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .reserve-card__subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #E0D6CC;
+      border-radius: 8px;
+      font-size: 15px;
+      color: var(--text);
+      background: #FFF;
+      transition: border-color 0.3s ease;
+      min-height: 48px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--primary);
+    }
+
+    .form-group input::placeholder {
+      color: #B8A99A;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .reserve-card__submit {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px;
+      background: var(--whatsapp);
+      color: #FFF;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 8px;
+      margin-top: 8px;
+      min-height: 52px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .reserve-card__submit:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+    }
+
+    .reserve-card__submit svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Contact info */
+    .info-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
+      padding: 48px 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card__title {
+      font-family: var(--ff-heading);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .info-item:last-child { margin-bottom: 0; }
+
+    .info-item__icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      background: var(--surface);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .info-item__icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--primary);
+    }
+
+    .info-item__label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .info-item__value {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .info-item__value a {
+      color: var(--primary);
+      transition: color 0.3s ease;
+    }
+
+    .info-item__value a:hover {
+      color: var(--primary-dark);
+    }
+
+    .info-card__map-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px;
+      background: var(--surface);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-top: 32px;
+      min-height: 48px;
+      transition: background 0.3s ease;
+    }
+
+    .info-card__map-btn:hover {
+      background: #E8D5C0;
+    }
+
+    .info-card__map-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+    .footer {
+      background: var(--text);
+      color: #D4C4B5;
+      padding: 80px 0 40px;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+
+    .footer__brand-name {
+      font-family: var(--ff-heading);
+      font-size: 24px;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 16px;
+    }
+
+    .footer__brand-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 280px;
+      opacity: 0.7;
+    }
+
+    .footer__col-title {
+      font-family: var(--ff-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: #FFF;
+      margin-bottom: 20px;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer__link {
+      font-size: 14px;
+      opacity: 0.7;
+      transition: opacity 0.3s ease, padding-left 0.3s ease;
+    }
+
+    .footer__link:hover {
+      opacity: 1;
+      padding-left: 4px;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .footer__social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 196, 181, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .footer__social-link:hover {
+      border-color: var(--gold);
+      background: rgba(197, 150, 58, 0.1);
+    }
+
+    .footer__social-link svg {
+      width: 18px;
+      height: 18px;
+      opacity: 0.7;
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(212, 196, 181, 0.1);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      opacity: 0.5;
+    }
+
+    /* ================================================================
+       WHATSAPP FAB
+    ================================================================ */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 60px;
+      height: 60px;
+      background: var(--whatsapp);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      z-index: 900;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .whatsapp-fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.45);
+    }
+
+    .whatsapp-fab svg {
+      width: 28px;
+      height: 28px;
+      color: #FFF;
+    }
+
+    /* ================================================================
+       RESPONSIVE: TABLET
+    ================================================================ */
+    @media (max-width: 1023px) {
+      .hero__split {
+        flex-direction: column;
+      }
+
+      .hero__left {
+        max-width: 100%;
+        padding: 80px 24px 60px;
+      }
+
+      .hero__right {
+        max-width: 100%;
+        min-height: 320px;
+      }
+
+      .hero__stats {
+        gap: 28px;
+      }
+
+      .why__item,
+      .why__item:nth-child(even) {
+        flex-direction: column;
+        text-align: left;
+        gap: 20px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .why__item:nth-child(even) .why__item-desc {
+        margin-left: 0;
+      }
+
+      .why__item:nth-child(even) .why__item-icon {
+        margin-left: 0;
+      }
+
+      .why__item-number {
+        font-size: 72px;
+        min-width: auto;
+      }
+
+      .chef__split {
+        flex-direction: column;
+        gap: 48px;
+      }
+
+      .chef__right {
+        max-width: 100%;
+      }
+
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* ================================================================
+       RESPONSIVE: MOBILE
+    ================================================================ */
+    @media (max-width: 767px) {
+      :root {
+        --nav-height: 68px;
+      }
+
+      .hero__left {
+        padding: 60px 24px 40px;
+      }
+
+      .hero__right {
+        min-height: 240px;
+      }
+
+      .hero__stats {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .hero__ctas {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .hero__ctas .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .why { padding: 80px 0; }
+      .why__header { margin-bottom: 60px; }
+      .why__items { gap: 60px; }
+      .why__item-number { font-size: 56px; }
+
+      .menu-section { padding: 80px 0 60px; }
+      .menu-card { flex: 0 0 280px; min-height: 380px; padding: 32px 24px; background-size: cover; }
+
+      .chef { padding: 80px 0; }
+      .chef__right-card { padding: 40px 28px; }
+      .chef__right-initials { font-size: 80px; }
+      .chef__pullquote { font-size: 18px; }
+
+      .testimonials { padding: 80px 0; }
+      .testimonial-card { padding: 36px 28px 32px; }
+      .testimonial-card__text { font-size: 16px; }
+
+      .contact { padding: 80px 0; }
+      .reserve-card, .info-card { padding: 36px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .whatsapp-fab {
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       TOP INFO BAR
+  ============================================================ -->
+  <div class="topbar" role="banner">
+    <div class="topbar__inner">
+      <span class="topbar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+919833968157">+91 9833968157</a>
+      </span>
+      <span class="topbar__divider"></span>
+      <span class="topbar__item topbar__item--email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:reserve@saffronkitchen.in">reserve@saffronkitchen.in</a>
+      </span>
+      <span class="topbar__divider"></span>
+      <span class="topbar__item topbar__item--hours">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Lunch 12-3PM &nbsp;|&nbsp; Dinner 7-11PM
+      </span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar__inner">
+      <a href="#hero" class="navbar__brand" aria-label="Saffron Kitchen home">
+        <!-- Flame/Spice Logo SVG -->
+        <svg class="navbar__logo-icon" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M21 4C21 4 28 12 28 20C28 24.5 25 28 21 30C17 28 14 24.5 14 20C14 12 21 4 21 4Z" fill="#C5963A" opacity="0.9"/>
+          <path d="M21 12C21 12 25 17 25 22C25 24.8 23.2 27 21 28C18.8 27 17 24.8 17 22C17 17 21 12 21 12Z" fill="#8B4513"/>
+          <path d="M21 18C21 18 23 21 23 23.5C23 25.1 22.1 26.2 21 26.8C19.9 26.2 19 25.1 19 23.5C19 21 21 18 21 18Z" fill="#C41E3A" opacity="0.8"/>
+          <circle cx="21" cy="21" r="19.5" stroke="#C5963A" stroke-width="1" opacity="0.3"/>
+        </svg>
+        <div class="navbar__brand-text">
+          <span class="navbar__brand-name">Saffron Kitchen</span>
+          <span class="navbar__brand-sub">Fine Indian Dining</span>
+        </div>
+      </a>
+
+      <div class="navbar__links">
+        <a href="#hero" class="navbar__link is-active">Home</a>
+        <a href="#why" class="navbar__link">Why Us</a>
+        <a href="#menu" class="navbar__link">Menu</a>
+        <a href="#chef" class="navbar__link">Chef</a>
+        <a href="#testimonials" class="navbar__link">Reviews</a>
+        <a href="#contact" class="navbar__link">Contact</a>
+      </div>
+
+      <a href="https://wa.me/919833968157?text=Hi%2C%20I%27d%20like%20to%20reserve%20a%20table%20at%20Saffron%20Kitchen." class="navbar__cta navbar__cta--desktop" aria-label="Reserve a table via WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Reserve Table
+      </a>
+
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="navbar__mobile" id="mobileNav" aria-hidden="true">
+      <a href="#hero" class="navbar__link">Home</a>
+      <a href="#why" class="navbar__link">Why Us</a>
+      <a href="#menu" class="navbar__link">Menu</a>
+      <a href="#chef" class="navbar__link">Chef</a>
+      <a href="#testimonials" class="navbar__link">Reviews</a>
+      <a href="#contact" class="navbar__link">Contact</a>
+      <a href="https://wa.me/919833968157?text=Hi%2C%20I%27d%20like%20to%20reserve%20a%20table%20at%20Saffron%20Kitchen." class="navbar__cta" aria-label="Reserve a table via WhatsApp">Reserve Table</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO — SPLIT SCREEN
+  ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero__split">
+      <div class="hero__left">
+        <div class="section-label hero__label reveal-fade">
+          Koramangala, Bangalore
+        </div>
+
+        <h1 class="hero__headline reveal-stagger">
+          <span class="reveal-line"><span class="reveal-line__inner">Where Every</span></span>
+          <span class="reveal-line"><span class="reveal-line__inner"><em>Meal</em> Tells</span></span>
+          <span class="reveal-line"><span class="reveal-line__inner">a Story</span></span>
+        </h1>
+
+        <p class="hero__subtitle reveal-fade delay-2">
+          Chef Arjun Nair brings 15 years of culinary mastery and Le Cordon Bleu training to every plate. Experience Indian cuisine as art.
+        </p>
+
+        <div class="hero__ctas reveal-fade delay-3">
+          <a href="https://wa.me/919833968157?text=Hi%2C%20I%27d%20like%20to%20reserve%20a%20table%20at%20Saffron%20Kitchen." class="btn btn--primary" aria-label="Reserve a table via WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Reserve via WhatsApp
+          </a>
+          <a href="#menu" class="btn btn--outline" aria-label="Explore our menu">
+            Explore Menu
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="hero__stats reveal-fade delay-4">
+          <div class="hero__stat">
+            <span class="hero__stat-value">2000+</span>
+            <span class="hero__stat-label">Happy Guests</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-value">15+</span>
+            <span class="hero__stat-label">Signature Dishes</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-value">4.8</span>
+            <span class="hero__stat-label">Google Rating</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__right" aria-hidden="true">
+        <div class="hero__right-watermark">S</div>
+        <div class="hero__right-decor">
+          <!-- Spice/leaf SVG -->
+          <svg class="hero__spice-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 8C40 8 56 20 56 40C56 52 49 60 40 64C31 60 24 52 24 40C24 20 40 8 40 8Z" stroke="#8B4513" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <path d="M40 20C40 20 50 28 50 40C50 48 46 53 40 56C34 53 30 48 30 40C30 28 40 20 40 20Z" stroke="#C5963A" stroke-width="1" fill="none" opacity="0.4"/>
+            <line x1="40" y1="8" x2="40" y2="72" stroke="#8B4513" stroke-width="0.5" opacity="0.3"/>
+          </svg>
+          <div class="hero__right-ornament"></div>
+          <p class="hero__right-quote">
+            Spice is the<br>soul of cuisine
+          </p>
+          <div class="hero__right-ornament"></div>
+          <svg class="hero__spice-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+            <path d="M40 8C40 8 56 20 56 40C56 52 49 60 40 64C31 60 24 52 24 40C24 20 40 8 40 8Z" stroke="#8B4513" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <path d="M40 20C40 20 50 28 50 40C50 48 46 53 40 56C34 53 30 48 30 40C30 28 40 20 40 20Z" stroke="#C5963A" stroke-width="1" fill="none" opacity="0.4"/>
+            <line x1="40" y1="8" x2="40" y2="72" stroke="#8B4513" stroke-width="0.5" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="hero__divider"></div>
+  </section>
+
+  <!-- ============================================================
+       WHY CHOOSE US
+  ============================================================ -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="why__header">
+        <div class="section-label reveal-fade">Why Saffron Kitchen</div>
+        <h2 class="why__title reveal-stagger">
+          <span class="reveal-line"><span class="reveal-line__inner">A Dining Experience</span></span>
+          <span class="reveal-line"><span class="reveal-line__inner"><em>Beyond</em> the Ordinary</span></span>
+        </h2>
+      </div>
+
+      <div class="why__items">
+        <!-- 01 -->
+        <div class="why__item reveal-fade">
+          <div class="why__item-number">01</div>
+          <div class="why__item-content">
+            <svg class="why__item-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M24 6C24 6 36 14 36 26C36 34 30 40 24 42C18 40 12 34 12 26C12 14 24 6 24 6Z"/>
+              <path d="M24 16C24 16 30 20 30 28C30 32 27.5 35 24 36.5C20.5 35 18 32 18 28C18 20 24 16 24 16Z" opacity="0.4"/>
+            </svg>
+            <h3 class="why__item-title reveal-stagger">
+              <span class="reveal-line"><span class="reveal-line__inner">Authentic Recipes</span></span>
+            </h3>
+            <p class="why__item-desc">
+              Generations-old family recipes refined with Le Cordon Bleu technique. Every sauce simmered for hours, every spice blend ground fresh daily. Authenticity you can taste in every single bite.
+            </p>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="why__item reveal-fade delay-1">
+          <div class="why__item-number">02</div>
+          <div class="why__item-content">
+            <svg class="why__item-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="24" cy="24" r="10"/>
+              <path d="M24 8V14M24 34V40M8 24H14M34 24H40M12.7 12.7L17 17M31 31L35.3 35.3M35.3 12.7L31 17M17 31L12.7 35.3" opacity="0.5"/>
+            </svg>
+            <h3 class="why__item-title reveal-stagger">
+              <span class="reveal-line"><span class="reveal-line__inner">Fresh Ingredients</span></span>
+            </h3>
+            <p class="why__item-desc">
+              We source directly from organic farms across Karnataka and Kerala. Vegetables picked that morning, seafood from the coast, spices from the hills. The difference is unmistakable.
+            </p>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="why__item reveal-fade delay-2">
+          <div class="why__item-number">03</div>
+          <div class="why__item-content">
+            <svg class="why__item-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M8 36C8 36 12 28 24 28C36 28 40 36 40 36"/>
+              <path d="M14 28C14 20 18 14 24 14C30 14 34 20 34 28" opacity="0.5"/>
+              <line x1="24" y1="36" x2="24" y2="42"/>
+              <line x1="18" y1="42" x2="30" y2="42"/>
+            </svg>
+            <h3 class="why__item-title reveal-stagger">
+              <span class="reveal-line"><span class="reveal-line__inner">Warm Ambiance</span></span>
+            </h3>
+            <p class="why__item-desc">
+              Soft lighting, handcrafted table settings, and curated playlists create the perfect backdrop. Whether an intimate dinner or a celebration, the atmosphere elevates every moment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MENU HIGHLIGHTS — HORIZONTAL SCROLL
+  ============================================================ -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="menu-section__header">
+        <div class="section-label reveal-fade">Our Offerings</div>
+        <h2 class="menu-section__title reveal-stagger">
+          <span class="reveal-line"><span class="reveal-line__inner">Curated with <em>Passion,</em></span></span>
+          <span class="reveal-line"><span class="reveal-line__inner">Served with Pride</span></span>
+        </h2>
+        <p class="menu-section__subtitle reveal-fade delay-1">Scroll through our signature collections. Each dish tells a story of tradition, technique, and the finest ingredients.</p>
+      </div>
+    </div>
+
+    <div class="menu-scroll" id="menuScroll" role="region" aria-label="Menu highlights, scroll horizontally">
+      <!-- Card 1 -->
+      <article class="menu-card reveal-fade" style="background-image: url('https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80')">
+        <span class="menu-card__number">01</span>
+        <svg class="menu-card__icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <ellipse cx="32" cy="40" rx="24" ry="12"/>
+          <path d="M12 40C12 32 20 18 32 18C44 18 52 32 52 40" opacity="0.4"/>
+          <path d="M32 18V10M28 12L32 10L36 12" opacity="0.3"/>
+          <line x1="20" y1="52" x2="44" y2="52" opacity="0.3"/>
+        </svg>
+        <h3 class="menu-card__name">Signature Biryanis</h3>
+        <p class="menu-card__desc">Slow-cooked dum biryanis with saffron-infused basmati, tender proteins, and our secret spice blend. Each grain tells a story of patience.</p>
+        <span class="menu-card__price">&#8377;450 &ndash; &#8377;850</span>
+        <div class="menu-card__rule"></div>
+        <a href="https://wa.me/919833968157?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20Signature%20Biryanis." class="menu-card__cta" aria-label="Order Signature Biryanis via WhatsApp">
+          Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="menu-card reveal-fade delay-1" style="background-image: url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80')">
+        <span class="menu-card__number">02</span>
+        <svg class="menu-card__icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="32" cy="36" r="18"/>
+          <path d="M20 36C20 28 25 22 32 22C39 22 44 28 44 36" opacity="0.4"/>
+          <path d="M28 32C28 32 30 28 32 28C34 28 36 32 36 32" opacity="0.3"/>
+          <path d="M26 38H38" opacity="0.3"/>
+        </svg>
+        <h3 class="menu-card__name">North Indian Curries</h3>
+        <p class="menu-card__desc">Rich, aromatic curries from the heartland. Butter chicken, dal makhani, paneer tikka masala -- each simmered to perfection in copper pots.</p>
+        <span class="menu-card__price">&#8377;350 &ndash; &#8377;650</span>
+        <div class="menu-card__rule"></div>
+        <a href="https://wa.me/919833968157?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20North%20Indian%20Curries." class="menu-card__cta" aria-label="Order North Indian Curries via WhatsApp">
+          Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="menu-card reveal-fade delay-2" style="background-image: url('https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&q=80')">
+        <span class="menu-card__number">03</span>
+        <svg class="menu-card__icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M16 44H48L44 24H20L16 44Z"/>
+          <path d="M24 24V18C24 14 28 10 32 10C36 10 40 14 40 18V24" opacity="0.4"/>
+          <line x1="32" y1="30" x2="32" y2="38" opacity="0.3"/>
+          <line x1="28" y1="34" x2="36" y2="34" opacity="0.3"/>
+        </svg>
+        <h3 class="menu-card__name">Tandoor Specialties</h3>
+        <p class="menu-card__desc">Clay-oven magic at 480 degrees. Succulent kebabs, tikkas, and naans with the unmistakable smokiness that only a real tandoor delivers.</p>
+        <span class="menu-card__price">&#8377;300 &ndash; &#8377;550</span>
+        <div class="menu-card__rule"></div>
+        <a href="https://wa.me/919833968157?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20Tandoor%20Specialties." class="menu-card__cta" aria-label="Order Tandoor Specialties via WhatsApp">
+          Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="menu-card reveal-fade delay-3" style="background-image: url('https://images.unsplash.com/photo-1630383249896-424e482df921?w=400&q=80')">
+        <span class="menu-card__number">04</span>
+        <svg class="menu-card__icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <ellipse cx="32" cy="34" rx="22" ry="16"/>
+          <path d="M14 34C14 26 22 20 32 20C42 20 50 26 50 34" opacity="0.4"/>
+          <circle cx="26" cy="32" r="3" opacity="0.3"/>
+          <circle cx="38" cy="32" r="3" opacity="0.3"/>
+          <circle cx="32" cy="38" r="2" opacity="0.2"/>
+        </svg>
+        <h3 class="menu-card__name">South Indian Favorites</h3>
+        <p class="menu-card__desc">Crispy dosas, fluffy idlis, and aromatic sambhar. Chef Arjun's Kerala roots shine through in these soulful, comforting classics.</p>
+        <span class="menu-card__price">&#8377;250 &ndash; &#8377;450</span>
+        <div class="menu-card__rule"></div>
+        <a href="https://wa.me/919833968157?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20South%20Indian%20Favorites." class="menu-card__cta" aria-label="Order South Indian Favorites via WhatsApp">
+          Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="menu-card reveal-fade delay-3" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&q=80')">
+        <span class="menu-card__number">05</span>
+        <svg class="menu-card__icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M20 42C20 42 22 30 32 30C42 30 44 42 44 42"/>
+          <path d="M24 42C24 42 26 36 32 36C38 36 40 42 40 42" opacity="0.4"/>
+          <circle cx="32" cy="24" r="6" opacity="0.5"/>
+          <path d="M29 22C29 22 31 18 32 18C33 18 35 22 35 22" opacity="0.3"/>
+          <line x1="18" y1="46" x2="46" y2="46" opacity="0.3"/>
+        </svg>
+        <h3 class="menu-card__name">Desserts &amp; Sweets</h3>
+        <p class="menu-card__desc">Gulab jamun in rose syrup, saffron kheer, chocolate chai mousse. Traditional Indian sweets reimagined with contemporary finesse.</p>
+        <span class="menu-card__price">&#8377;200 &ndash; &#8377;400</span>
+        <div class="menu-card__rule"></div>
+        <a href="https://wa.me/919833968157?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20Desserts." class="menu-card__cta" aria-label="Order Desserts via WhatsApp">
+          Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="menu-card reveal-fade delay-4" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80')">
+        <span class="menu-card__number">06</span>
+        <svg class="menu-card__icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M32 10L36 20H46L38 26L40 36L32 30L24 36L26 26L18 20H28L32 10Z"/>
+          <circle cx="32" cy="46" r="10" opacity="0.3"/>
+          <path d="M28 44H36M28 48H36" opacity="0.2"/>
+        </svg>
+        <h3 class="menu-card__name">Chef's Specials</h3>
+        <p class="menu-card__desc">Exclusive creations that change seasonally. Chef Arjun's playground -- where classical training meets creative inspiration and local ingredients.</p>
+        <span class="menu-card__price">&#8377;500 &ndash; &#8377;1200</span>
+        <div class="menu-card__rule"></div>
+        <a href="https://wa.me/919833968157?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20Chef%27s%20Specials." class="menu-card__cta" aria-label="Order Chef's Specials via WhatsApp">
+          Order Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+    </div>
+
+    <!-- Dot indicators -->
+    <div class="menu-dots" id="menuDots" role="tablist" aria-label="Menu scroll position">
+      <button class="menu-dots__dot is-active" data-index="0" role="tab" aria-label="Scroll to item 1" aria-selected="true"></button>
+      <button class="menu-dots__dot" data-index="1" role="tab" aria-label="Scroll to item 2" aria-selected="false"></button>
+      <button class="menu-dots__dot" data-index="2" role="tab" aria-label="Scroll to item 3" aria-selected="false"></button>
+      <button class="menu-dots__dot" data-index="3" role="tab" aria-label="Scroll to item 4" aria-selected="false"></button>
+      <button class="menu-dots__dot" data-index="4" role="tab" aria-label="Scroll to item 5" aria-selected="false"></button>
+      <button class="menu-dots__dot" data-index="5" role="tab" aria-label="Scroll to item 6" aria-selected="false"></button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT CHEF — EDITORIAL SPLIT
+  ============================================================ -->
+  <section class="chef" id="chef">
+    <div class="container">
+      <div class="chef__split">
+        <div class="chef__left">
+          <div class="section-label chef__label reveal-fade">The Craftsman</div>
+          <h2 class="chef__title reveal-stagger">
+            <span class="reveal-line"><span class="reveal-line__inner">Meet Chef</span></span>
+            <span class="reveal-line"><span class="reveal-line__inner"><em>Arjun Nair</em></span></span>
+          </h2>
+          <p class="chef__bio reveal-fade delay-1">
+            With roots in Kerala's rich culinary heritage and training at Le Cordon Bleu, Chef Arjun Nair brings a unique perspective to Indian cuisine. His philosophy is simple: honor tradition while embracing innovation.
+          </p>
+          <p class="chef__bio reveal-fade delay-2">
+            Over 15 years, he has cooked in kitchens across three continents, absorbing techniques and flavors before returning to India to create Saffron Kitchen -- a restaurant where every dish is a letter of love to his homeland.
+          </p>
+          <div class="chef__credentials reveal-fade delay-3">
+            <span class="chef__credential">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Le Cordon Bleu Alumni
+            </span>
+            <span class="chef__credential">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              15 Years Experience
+            </span>
+            <span class="chef__credential">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              3 Continents
+            </span>
+            <span class="chef__credential">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Farm-to-Table Advocate
+            </span>
+          </div>
+        </div>
+
+        <div class="chef__right reveal-fade delay-2">
+          <div class="chef__right-card">
+            <div class="chef__right-border"></div>
+            <div class="chef__right-initials" style="font-size:0;overflow:hidden;width:160px;height:160px;border-radius:50%;margin-bottom:32px;"><img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=400&fit=crop&crop=face" alt="Chef Arjun Nair" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+            <blockquote class="chef__pullquote">
+              <span class="chef__pullquote-mark">"</span>
+              Cooking is not about recipes. It is about understanding the soul of an ingredient and giving it the respect it deserves.
+              <span class="chef__pullquote-author">-- Chef Arjun Nair</span>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+  ============================================================ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials__header">
+        <div class="section-label reveal-fade">Guest Voices</div>
+        <h2 class="testimonials__title reveal-stagger">
+          <span class="reveal-line"><span class="reveal-line__inner">What Our <em>Guests</em></span></span>
+          <span class="reveal-line"><span class="reveal-line__inner">Are Saying</span></span>
+        </h2>
+      </div>
+
+      <div class="testimonials__grid">
+        <article class="testimonial-card reveal-fade">
+          <span class="testimonial-card__quote-mark" aria-hidden="true">"</span>
+          <p class="testimonial-card__text">
+            The biryani here transported me straight to Hyderabad. Every grain was perfectly cooked, and the flavors were layered with such precision. An unforgettable dining experience.
+          </p>
+          <div class="testimonial-card__rule"></div>
+          <div class="testimonial-card__author">Priya Mehta</div>
+          <div class="testimonial-card__location">Indiranagar, Bangalore</div>
+          <div class="testimonial-card__stars" aria-label="5 stars">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal-fade delay-1">
+          <span class="testimonial-card__quote-mark" aria-hidden="true">"</span>
+          <p class="testimonial-card__text">
+            Chef Arjun is a true artist. The tandoori lamb chops were the best I have ever had -- smoky, tender, and bursting with flavor. The ambiance is equally remarkable.
+          </p>
+          <div class="testimonial-card__rule"></div>
+          <div class="testimonial-card__author">Rahul Sharma</div>
+          <div class="testimonial-card__location">HSR Layout, Bangalore</div>
+          <div class="testimonial-card__stars" aria-label="5 stars">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal-fade delay-2">
+          <span class="testimonial-card__quote-mark" aria-hidden="true">"</span>
+          <p class="testimonial-card__text">
+            We celebrated our anniversary here and it was magical. The attention to detail, from the table setting to the dessert presentation, showed genuine care. Truly fine dining.
+          </p>
+          <div class="testimonial-card__rule"></div>
+          <div class="testimonial-card__author">Ananya &amp; Vikram</div>
+          <div class="testimonial-card__location">Whitefield, Bangalore</div>
+          <div class="testimonial-card__stars" aria-label="5 stars">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT / RESERVATION
+  ============================================================ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact__header">
+        <div class="section-label reveal-fade">Get in Touch</div>
+        <h2 class="contact__title reveal-stagger">
+          <span class="reveal-line"><span class="reveal-line__inner">Reserve Your</span></span>
+          <span class="reveal-line"><span class="reveal-line__inner"><em>Table</em> Tonight</span></span>
+        </h2>
+        <p class="contact__subtitle reveal-fade delay-1">Book directly via WhatsApp for the fastest confirmation. We look forward to welcoming you.</p>
+      </div>
+
+      <div class="contact__grid">
+        <!-- Reservation Form -->
+        <div class="reserve-card reveal-fade">
+          <h3 class="reserve-card__title">Make a Reservation</h3>
+          <p class="reserve-card__subtitle">Fill in your details and we will confirm via WhatsApp</p>
+          <form id="reserveForm" aria-label="Table reservation form">
+            <div class="form-group">
+              <label for="resName">Your Name</label>
+              <input type="text" id="resName" placeholder="Full name" required aria-required="true">
+            </div>
+            <div class="form-group">
+              <label for="resPhone">Phone Number</label>
+              <input type="tel" id="resPhone" placeholder="+91 98339 68157" required aria-required="true">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="resParty">Party Size</label>
+                <select id="resParty" required aria-required="true">
+                  <option value="">Select</option>
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6 Guests</option>
+                  <option value="7+">7+ Guests</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="resDate">Date</label>
+                <input type="date" id="resDate" required aria-required="true">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="resTime">Preferred Time</label>
+              <select id="resTime" required aria-required="true">
+                <option value="">Select time</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="12:30 PM">12:30 PM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="1:30 PM">1:30 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="2:30 PM">2:30 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
+                <option value="7:30 PM">7:30 PM</option>
+                <option value="8:00 PM">8:00 PM</option>
+                <option value="8:30 PM">8:30 PM</option>
+                <option value="9:00 PM">9:00 PM</option>
+                <option value="9:30 PM">9:30 PM</option>
+                <option value="10:00 PM">10:00 PM</option>
+                <option value="10:30 PM">10:30 PM</option>
+              </select>
+            </div>
+            <button type="submit" class="reserve-card__submit" aria-label="Send reservation via WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Confirm via WhatsApp
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="info-card reveal-fade delay-1">
+          <h3 class="info-card__title">Visit Us</h3>
+
+          <div class="info-item">
+            <div class="info-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="info-item__label">Address</div>
+              <div class="info-item__value">12, 1st Cross, 6th Block,<br>Koramangala, Bangalore 560095</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="info-item__label">Phone</div>
+              <div class="info-item__value"><a href="https://wa.me/919833968157">+91 9833 968 157</a></div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="info-item__label">Lunch</div>
+              <div class="info-item__value">12:00 PM &ndash; 3:00 PM</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
+            <div>
+              <div class="info-item__label">Dinner</div>
+              <div class="info-item__value">7:00 PM &ndash; 11:00 PM</div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/919833968157?text=Hi%2C%20can%20you%20share%20directions%20to%20Saffron%20Kitchen%3F" class="info-card__map-btn" aria-label="Get directions via WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            Get Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Saffron Kitchen</div>
+          <p class="footer__brand-desc">Fine Indian dining in the heart of Koramangala. Where tradition meets contemporary culinary art, and every meal becomes a memory.</p>
+          <div class="footer__social">
+            <a href="https://wa.me/919833968157" class="footer__social-link" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="https://wa.me/919833968157" class="footer__social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://wa.me/919833968157" class="footer__social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <nav class="footer__links" aria-label="Footer navigation">
+            <a href="#hero" class="footer__link">Home</a>
+            <a href="#why" class="footer__link">Why Us</a>
+            <a href="#menu" class="footer__link">Menu</a>
+            <a href="#chef" class="footer__link">Our Chef</a>
+            <a href="#testimonials" class="footer__link">Reviews</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Hours</div>
+          <div class="footer__links">
+            <span class="footer__link">Lunch: 12 &ndash; 3 PM</span>
+            <span class="footer__link">Dinner: 7 &ndash; 11 PM</span>
+            <span class="footer__link">Mon &ndash; Sun</span>
+            <span class="footer__link">Closed on Tuesdays</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__links">
+            <a href="https://wa.me/919833968157" class="footer__link">+91 9833 968 157</a>
+            <span class="footer__link">12, 1st Cross, 6th Block</span>
+            <span class="footer__link">Koramangala, Bangalore</span>
+            <span class="footer__link">Karnataka 560095</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 Saffron Kitchen. All rights reserved.</span>
+        <span>Crafted with care in Bangalore</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       WHATSAPP FAB
+  ============================================================ -->
+  <a href="https://wa.me/919833968157?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Saffron%20Kitchen." class="whatsapp-fab" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ============================================
+         TEXT REVEAL ENGINE — IntersectionObserver
+      ============================================ */
+      function initRevealEngine() {
+        var revealElements = document.querySelectorAll('.reveal-line, .reveal-fade');
+        if (!revealElements.length) return;
+
+        var observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -60px 0px',
+          threshold: 0.15
+        };
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+
+              // If this is inside a reveal-stagger parent, reveal siblings too
+              var parent = entry.target.closest('.reveal-stagger');
+              if (parent) {
+                var siblings = parent.querySelectorAll('.reveal-line');
+                siblings.forEach(function (sib) {
+                  sib.classList.add('is-visible');
+                });
+              }
+
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        revealElements.forEach(function (el) {
+          observer.observe(el);
+        });
+      }
+
+      /* ============================================
+         NAVBAR SCROLL STATE
+      ============================================ */
+      function initNavbarScroll() {
+        var navbar = document.getElementById('navbar');
+        var lastScroll = 0;
+
+        window.addEventListener('scroll', function () {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          if (scrollTop > 50) {
+            navbar.classList.add('is-scrolled');
+          } else {
+            navbar.classList.remove('is-scrolled');
+          }
+          lastScroll = scrollTop;
+        }, { passive: true });
+      }
+
+      /* ============================================
+         ACTIVE NAV LINK ON SCROLL
+      ============================================ */
+      function initActiveNav() {
+        var sections = document.querySelectorAll('section[id]');
+        var navLinks = document.querySelectorAll('.navbar__link');
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.getAttribute('id');
+              navLinks.forEach(function (link) {
+                link.classList.remove('is-active');
+                if (link.getAttribute('href') === '#' + id) {
+                  link.classList.add('is-active');
+                }
+              });
+            }
+          });
+        }, { rootMargin: '-40% 0px -60% 0px', threshold: 0 });
+
+        sections.forEach(function (section) {
+          observer.observe(section);
+        });
+      }
+
+      /* ============================================
+         HAMBURGER MENU
+      ============================================ */
+      function initHamburger() {
+        var hamburger = document.getElementById('hamburger');
+        var mobileNav = document.getElementById('mobileNav');
+        var mobileLinks = mobileNav.querySelectorAll('.navbar__link, .navbar__cta');
+
+        hamburger.addEventListener('click', function () {
+          var isOpen = hamburger.classList.toggle('is-open');
+          mobileNav.classList.toggle('is-open');
+          hamburger.setAttribute('aria-expanded', isOpen);
+          mobileNav.setAttribute('aria-hidden', !isOpen);
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        mobileLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            hamburger.classList.remove('is-open');
+            mobileNav.classList.remove('is-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileNav.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      /* ============================================
+         SMOOTH SCROLL FOR ANCHOR LINKS
+      ============================================ */
+      function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+          anchor.addEventListener('click', function (e) {
+            var targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            var target = document.querySelector(targetId);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+      }
+
+      /* ============================================
+         HORIZONTAL MENU SCROLL + DOTS
+      ============================================ */
+      function initMenuScroll() {
+        var scrollContainer = document.getElementById('menuScroll');
+        var dots = document.querySelectorAll('.menu-dots__dot');
+        var cards = scrollContainer.querySelectorAll('.menu-card');
+
+        if (!scrollContainer || !dots.length || !cards.length) return;
+
+        function updateDots() {
+          var scrollLeft = scrollContainer.scrollLeft;
+          var cardWidth = cards[0].offsetWidth + 28; // card + gap
+          var activeIndex = Math.round(scrollLeft / cardWidth);
+          activeIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
+
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('is-active', i === activeIndex);
+            dot.setAttribute('aria-selected', i === activeIndex ? 'true' : 'false');
+          });
+        }
+
+        scrollContainer.addEventListener('scroll', updateDots, { passive: true });
+
+        dots.forEach(function (dot) {
+          dot.addEventListener('click', function () {
+            var index = parseInt(this.getAttribute('data-index'), 10);
+            var cardWidth = cards[0].offsetWidth + 28;
+            scrollContainer.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+          });
+        });
+
+        // Initial state
+        updateDots();
+      }
+
+      /* ============================================
+         RESERVATION FORM -> WHATSAPP
+      ============================================ */
+      function initReservationForm() {
+        var form = document.getElementById('reserveForm');
+        if (!form) return;
+
+        // Set min date to today
+        var dateInput = document.getElementById('resDate');
+        if (dateInput) {
+          var today = new Date();
+          var yyyy = today.getFullYear();
+          var mm = String(today.getMonth() + 1).padStart(2, '0');
+          var dd = String(today.getDate()).padStart(2, '0');
+          dateInput.setAttribute('min', yyyy + '-' + mm + '-' + dd);
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          var name = document.getElementById('resName').value.trim();
+          var phone = document.getElementById('resPhone').value.trim();
+          var party = document.getElementById('resParty').value;
+          var date = document.getElementById('resDate').value;
+          var time = document.getElementById('resTime').value;
+
+          if (!name || !phone || !party || !date || !time) {
+            return;
+          }
+
+          // Format date nicely
+          var dateObj = new Date(date + 'T00:00:00');
+          var formattedDate = dateObj.toLocaleDateString('en-IN', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+
+          var message = 'Hi, I would like to reserve a table at Saffron Kitchen.\n\n' +
+            'Name: ' + name + '\n' +
+            'Phone: ' + phone + '\n' +
+            'Party Size: ' + party + '\n' +
+            'Date: ' + formattedDate + '\n' +
+            'Time: ' + time + '\n\n' +
+            'Please confirm my reservation. Thank you!';
+
+          var whatsappUrl = 'https://wa.me/919833968157?text=' + encodeURIComponent(message);
+          window.open(whatsappUrl, '_blank', 'noopener');
+        });
+      }
+
+      /* ============================================
+         INITIALIZE EVERYTHING
+      ============================================ */
+      document.addEventListener('DOMContentLoaded', function () {
+        initRevealEngine();
+        initNavbarScroll();
+        initActiveNav();
+        initHamburger();
+        initSmoothScroll();
+        initMenuScroll();
+        initReservationForm();
+      });
+
+    })();
+  </script>
+</body>
+</html>
